@@ -1,0 +1,18 @@
+opam-version: "1"
+maintainer: "lucas.pluvinage@ens.fr"
+substs: [ "esp32.conf" "config/Makefile"  "byterun/caml/m.h" "byterun/caml/s.h" ]
+install: [ 
+    [ make "coldstart-stdlib" ]
+    [ make "opt-core" ]
+    [ make "-C" "byterun" "libcamlrun.a" ]
+    [ make "installopt-core" ]
+    [ make "ocamlc" ]
+    [ make "-C" "tools" "ocamlmklib" ]
+    ["sh" "./install.sh" "%{prefix}%"]
+]
+remove: [
+    [ "rm" "-rf" "%{prefix}%/esp32-sysroot" ]
+    [ "rm" "%{bin}%/ocamlopt-esp32" ]
+    [ "rm" "%{bin}%/ocamlc-esp32" ]
+]
+depends: ["gcc-toolchain-esp32"]

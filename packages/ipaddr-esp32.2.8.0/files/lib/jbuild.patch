@@ -1,0 +1,19 @@
+diff --git a/lib/jbuild b/lib/jbuild
+index 910c275..590d2de 100644
+--- a/lib/jbuild
++++ b/lib/jbuild
+@@ -6,14 +6,3 @@
+   (preprocess (pps (ppx_sexp_conv)))
+   (libraries (sexplib))))
+ 
+-(library
+- ((name        ipaddr_unix)
+-  (public_name ipaddr.unix)
+-  (modules (ipaddr_unix))
+-  (libraries (unix ipaddr))))
+-
+-(library
+- ((name        ipaddr_top)
+-  (public_name ipaddr.top)
+-  (modules (ipaddr_top))
+-  (libraries (ipaddr compiler-libs.toplevel))))

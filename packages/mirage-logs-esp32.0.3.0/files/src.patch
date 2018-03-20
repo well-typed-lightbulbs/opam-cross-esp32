@@ -1,0 +1,12 @@
+diff --git a/src/mirage_logs.ml b/src/mirage_logs.ml
+index f9a39e5..6202b62 100644
+--- a/src/mirage_logs.ml
++++ b/src/mirage_logs.ml
+@@ -97,7 +97,6 @@ module Make (C : Mirage_clock.PCLOCK) = struct
+         Buffer.clear buf;
+         if level <= console_threshold src then
+           Printf.fprintf ch "%s: %s\n%!" (fmt_timestamp (posix_time, tz)) msg;
+-        MProf.Trace.label msg;
+         log_to_ring posix_time tz msg ring;
+         over ();
+         k () in

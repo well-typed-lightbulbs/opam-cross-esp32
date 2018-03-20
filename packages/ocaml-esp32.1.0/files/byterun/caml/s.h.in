@@ -1,0 +1,6 @@
+#define OCAML_OS_TYPE "Unix"
+#define OCAML_STDLIB_DIR "."
+#define HAS_C99_FLOAT_OPS
+#define HAS_STDINT_H
+#define HAS_UNISTD
+#define HAS_OFF_T

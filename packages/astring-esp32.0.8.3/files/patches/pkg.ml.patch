@@ -1,0 +1,13 @@
+diff --git a/pkg/pkg.ml b/pkg/pkg.ml
+index f0b9a56..f8d753c 100644
+--- a/pkg/pkg.ml
++++ b/pkg/pkg.ml
+@@ -6,8 +6,6 @@ open Topkg
+ let () =
+   Pkg.describe "astring" @@ fun c ->
+   Ok [ Pkg.mllib ~api:["Astring"] "src/astring.mllib";
+-       Pkg.mllib ~api:[] "src/astring_top.mllib";
+-       Pkg.lib "src/astring_top_init.ml";
+        Pkg.doc "test/examples.ml";
+        Pkg.test "test/test";
+        Pkg.test "test/examples"; ]

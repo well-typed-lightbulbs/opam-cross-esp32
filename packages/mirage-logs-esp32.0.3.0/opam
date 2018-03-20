@@ -1,0 +1,36 @@
+opam-version: "1.2"
+maintainer: "talex5@gmail.com"
+authors: [ "Thomas Leonard" ]
+license: "ISC"
+homepage: "https://github.com/mirage/mirage-logs"
+dev-repo: "https://github.com/mirage/mirage-logs.git"
+bug-reports: "https://github.com/mirage/mirage-logs/issues"
+tags: ["org:mirage"]
+available: [ ocaml-version >= "4.01.0"]
+depends: [
+  "ocamlfind" {build}
+  "ocamlbuild" {build}
+  "topkg-esp32" {build}
+  "logs-esp32" { >= "0.5.0" }
+  "ptime-esp32" { >= "0.8.1" }
+  "mirage-clock-esp32" { >= "1.2.0"}
+  "lwt-esp32"
+  "alcotest" {test}
+]
+conflicts: [
+  "mirage-types" { < "3.0.0" }
+]
+depopts: []
+build: [
+  "ocaml" "pkg/pkg.ml" "build"
+          "--tests" "false"
+          "--pinned" "%{pinned}%" 
+          "--toolchain" "esp32"]
+build-test: [
+  [ "ocaml" "pkg/pkg.ml" "build"
+          "--tests" "true"
+          "--pinned" "%{pinned}%" ]
+  [ "ocaml" "pkg/pkg.ml" "test" ]
+]
+install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "mirage-logs.install"]]
+patches : [ "src.patch" "tags.patch" ]

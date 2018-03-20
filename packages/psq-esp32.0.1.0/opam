@@ -1,0 +1,18 @@
+opam-version: "1.2"
+maintainer: "David Kaloper Meršinjak <david@numm.org>"
+authors: "David Kaloper Meršinjak <david@numm.org>"
+homepage: "https://github.com/pqwy/psq"
+bug-reports: "https://github.com/pqwy/psq/issues"
+license: "ISC"
+doc: "https://pqwy.github.io/psq/doc"
+dev-repo: "https://github.com/pqwy/psq.git"
+build: ["ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%"  "--toolchain" "esp32"]
+install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "psq.install"]]
+depends: [
+  "ocamlfind" {build}
+  "ocamlbuild" {build}
+  "topkg-esp32" {build}
+  "ocaml-esp32"
+  "alcotest" {test}
+]
+available: [ocaml-version >= "4.02.0"]

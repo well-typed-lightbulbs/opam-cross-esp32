@@ -1,0 +1,26 @@
+opam-version: "2.0"
+maintainer: "opensource@janestreet.com"
+authors: ["Jane Street Group, LLC <opensource@janestreet.com>"]
+homepage: "https://github.com/janestreet/ppx_driver"
+bug-reports: "https://github.com/janestreet/ppx_driver/issues"
+dev-repo: "git+https://github.com/janestreet/ppx_driver.git"
+license: "Apache-2.0"
+build: [
+  ["jbuilder" "build" "-p" "ppx_driver" "-j" jobs]
+]
+depends: [
+  "ocaml" {>= "4.04.1"}
+  "ppx_core-esp32" {>= "v0.10" & < "v0.11"}
+  "ppx_optcomp-esp32" {>= "v0.10" & < "v0.11"}
+  "jbuilder" {build & >= "1.0+beta12"}
+  "ocaml-migrate-parsetree-esp32" {>= "1.0"}
+]
+synopsis: "Feature-full driver for OCaml AST transformers"
+description: "Part of the Jane Street's PPX rewriters collection."
+url {
+  src:
+    "https://ocaml.janestreet.com/ocaml-core/v0.10/files/ppx_driver-v0.10.0.tar.gz"
+  checksum: "md5=1ce59200a2194f91e49b3e7e773994a4"
+}
+
+install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "ppx_driver.install"]]

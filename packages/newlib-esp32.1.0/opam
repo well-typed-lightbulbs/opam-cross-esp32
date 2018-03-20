@@ -1,0 +1,13 @@
+opam-version: "1"
+maintainer: "lucas.pluvinage@ens.fr"
+install: [
+    ["sh" "-c" 
+     "./configure --prefix=%{prefix}%/newlib --with-newlib --enable-multilib --disable-newlib-io-c99-formats --disable-newlib-supplied-syscalls --enable-newlib-nano-formatted-io --enable-newlib-reent-small --enable-target-optspace --program-transform-name=\"s&^&xtensa-esp32-elf-&\" --disable-option-checking --with-target-subdir=xtensa-esp32-elf --target=xtensa-esp32-elf"
+    ]
+    ["sh" "-c" "CROSS_CFLAGS=\"-DABORT_PROVIDED -DMALLOC_PROVIDED\" %{make}% all install"]
+]
+remove: [
+    ["rm" "-rf" "%{prefix}%/newlib"]
+]
+available: [ os = "linux" & arch = "x86_64" ]
+depends: ["gcc-toolchain-esp32"]

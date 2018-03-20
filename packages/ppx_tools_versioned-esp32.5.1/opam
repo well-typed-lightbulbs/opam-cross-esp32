@@ -1,0 +1,22 @@
+opam-version: "1.2"
+maintainer: "frederic.bour@lakaban.net"
+authors: [
+  "Frédéric Bour <frederic.bour@lakaban.net>"
+  "Alain Frisch <alain.frisch@lexifi.com>"
+]
+license: "MIT"
+homepage: "https://github.com/let-def/ppx_tools_versioned"
+bug-reports: "https://github.com/let-def/ppx_tools_versioned/issues"
+dev-repo: "git://github.com/let-def/ppx_tools_versioned.git"
+tags: [ "syntax" ]
+build: [
+  ["jbuilder" "subst" "-n" "ppx_tools_versioned"] {pinned}
+  ["jbuilder" "build" "-p" "ppx_tools_versioned" "-j" jobs]
+]
+build-test: [["jbuilder" "runtest" "-p" "ppx_tools_versioned" "-j" jobs]]
+depends: [
+  "jbuilder" {build & >= "1.0+beta17"}
+  "ocaml-migrate-parsetree-esp32" { >= "0.4" }
+]
+available: ocaml-version >= "4.02.0"
+install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "ppx_tools_versioned.install"]]

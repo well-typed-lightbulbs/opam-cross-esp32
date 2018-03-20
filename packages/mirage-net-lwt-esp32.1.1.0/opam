@@ -1,0 +1,35 @@
+opam-version: "2.0"
+maintainer:    "thomas@gazagnaire.org"
+homepage:      "https://github.com/mirage/mirage-net"
+bug-reports:   "https://github.com/mirage/mirage-net/issues"
+dev-repo: "git+https://github.com/mirage/mirage-net.git"
+doc:           "https://mirage.github.io/mirage-net/"
+authors:       ["Thomas Gazagnaire" "Anil Madhavapeddy" "Gabriel Radanne"
+               "Mindy Preston" "Thomas Leonard" "Nicolas Ojeda Bar"
+               "Dave Scott" "David Kaloper" "Hannes Mehnert" "Richard Mortier"]
+tags:          [ "org:mirage"]
+license:       "ISC"
+
+build: [
+  ["jbuilder" "subst"] {pinned}
+  ["env" "OCAMLFIND_TOOLCHAIN=esp32" "jbuilder" "build" "-p" "mirage-net-lwt" "-j" jobs]
+]
+
+depends: [
+  "ocaml"
+  "jbuilder" {build & >= "1.0+beta7"}
+  "topkg-esp32" {build & >= "0.8.0"}
+  "mirage-net-esp32" {>= "1.0.0"}
+  "lwt-esp32"
+  "ipaddr-esp32" {>= "1.0.0"}
+  "cstruct-esp32"
+  "io-page-esp32"
+  "result-esp32"
+]
+synopsis: "MirageOS TCP/IP networking library"
+url {
+  src:
+    "https://github.com/mirage/mirage-net/releases/download/v1.1.0/mirage-net-1.1.0.tbz"
+  checksum: "md5=76b10d355dc2e87ff2d19d1ae40c5d9b"
+}
+install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "mirage-net-lwt.install"]]

@@ -1,0 +1,13 @@
+opam-version: "1"
+maintainer: "lucas.pluvinage@ens.fr"
+install: [ 
+    ["mkdir" "-p" "%{prefix}%/esp-idf"]
+    ["sh" "-c" "mv * %{prefix}%/esp-idf/"]
+    ["cp" "%{prefix}%/newlib/xtensa-esp32-elf/lib/libc.a" "%{prefix}%/esp-idf/components/newlib/lib/libc.a"]
+]
+remove: [
+    ["sh" "-c" "rm -rf %{prefix}%/esp-idf"]
+]
+flags: []
+available: [ os = "linux" & arch = "x86_64" ]
+depends: ["gcc-toolchain-esp32" "newlib-esp32"]

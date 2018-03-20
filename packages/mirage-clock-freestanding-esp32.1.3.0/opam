@@ -1,0 +1,20 @@
+opam-version: "1.2"
+maintainer: "anil@recoil.org"
+authors: ["Anil Madhavapeddy" "Daniel C. Bünzli" "Matthew Gray"]
+homepage: "https://github.com/mirage/mirage-clock"
+bug-reports: "https://github.com/mirage/mirage-clock/issues"
+license: "ISC"
+tags: "org:mirage"
+dev-repo: "https://github.com/mirage/mirage-clock.git"
+build: [
+  ["env" "OCAMLFIND_TOOLCHAIN=esp32" "jbuilder" "subst"] {pinned}
+  ["env" "OCAMLFIND_TOOLCHAIN=esp32" "jbuilder" "build" "-p" "mirage-clock-freestanding" "-j" jobs]
+]
+depends: [
+  "jbuilder" {build & >= "1.0+beta9"}
+  "mirage-clock-esp32" {>= "1.2.0"}
+  "mirage-clock-lwt-esp32" {>= "1.2.0"}
+  "lwt-esp32"
+  "ocaml-esp32"
+]
+install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "mirage-clock-freestanding.install"]]
