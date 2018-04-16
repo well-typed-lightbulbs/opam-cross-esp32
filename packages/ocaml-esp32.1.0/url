@@ -1,1 +1,1 @@
-archive: "http://localhost:8000/ocaml-esp32.zip"
+git: "https://github.com/TheLortex/ocaml-esp32.git"

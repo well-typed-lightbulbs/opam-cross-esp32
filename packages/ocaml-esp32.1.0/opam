@@ -1,18 +1,15 @@
 opam-version: "1"
 maintainer: "lucas.pluvinage@ens.fr"
-substs: [ "esp32.conf" "config/Makefile"  "byterun/caml/m.h" "byterun/caml/s.h" ]
+substs: [ "esp32.conf" ]
+build: [
+    [ "sh" "./configure" "-target" "xtensa-esp32-elf" "-target-bindir" "%{prefix}%/esp32-sysroot/bin" "-prefix" "%{prefix}%/esp32-sysroot" ]
+    [ make "world-cross" "-j8"]
+]
 install: [ 
-    [ make "coldstart-stdlib" ]
-    [ make "opt-core" ]
-    [ make "-C" "byterun" "libcamlrun.a" ]
-    [ make "installopt-core" ]
-    [ make "ocamlc" ]
-    [ make "-C" "tools" "ocamlmklib" ]
+    [ make "install-cross" ]
     ["sh" "./install.sh" "%{prefix}%"]
 ]
 remove: [
     [ "rm" "-rf" "%{prefix}%/esp32-sysroot" ]
-    [ "rm" "%{bin}%/ocamlopt-esp32" ]
-    [ "rm" "%{bin}%/ocamlc-esp32" ]
 ]
 depends: ["gcc-toolchain-esp32"]
