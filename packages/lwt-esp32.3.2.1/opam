@@ -17,8 +17,7 @@ dev-repo: "https://github.com/ocsigen/lwt.git"
 
 substs: ["src/jbuild-ignore" "src/core/flambda.flag"]
 build: [
-  [ "env" "OCAMLFIND_TOOLCHAIN=esp32" "jbuilder" "build" "-p" "lwt" "-j" jobs]
-  [ "ocaml" "src/util/install_filter.ml" ]
+  [ "jbuilder" "build" "-x" "esp32" "-p" "lwt" "-j" jobs]
 ]
 build-test: [ [ "jbuilder" "runtest" "-p" name ] ]
 
@@ -34,10 +33,10 @@ depends: [
   # dependency should be converted to a conflict, and package jbuilder should be
   # constrained such that it also includes the error lines fix.
   "ocamlfind" {build & >= "1.7.3-1"}
-  "ocaml-migrate-parsetree"
-  "ppx_tools_versioned" {>= "5.0.1"}
+  "ocaml-migrate-parsetree-esp32"
+  "ppx_tools_versioned-esp32" {>= "5.0.1"}
   # result is needed as long as Lwt still supports OCaml 4.02.
-  "result"
+  "result-esp32"
 ]
 depopts: [
   "base-threads"
@@ -61,5 +60,3 @@ post-messages: [
   "Lwt 4.0.0 will make some breaking changes in March 2018. See
   https://github.com/ocsigen/lwt/issues/453"
 ]
-
-install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "lwt.install"]]
