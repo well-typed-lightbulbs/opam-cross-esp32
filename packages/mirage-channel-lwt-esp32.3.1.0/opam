@@ -1,5 +1,5 @@
 opam-version: "2.0"
-maintainer:   "Anil Madhavapeddy <anil@recoil.org>"
+maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors:      ["Anil Madhavapeddy" "Mindy Preston" "Thomas Gazagnaire"]
 homepage:     "https://github.com/mirage/mirage-channel"
 doc:          "http://docs.mirage.io/mirage-channel"
@@ -10,7 +10,7 @@ tags:         ["org:mirage"]
 
 build: [
   ["jbuilder" "subst"] {pinned}
-  ["env" "OCAMLFIND_TOOLCHAIN=esp32" "jbuilder" "build" "-p" "mirage-channel-lwt" "-j" jobs]
+  ["jbuilder" "build" "-x" "esp32" "-p" "mirage-channel-lwt" "-j" jobs]
 ]
 depends: [
   "ocaml" {>= "4.02.3"}
@@ -22,6 +22,7 @@ depends: [
   "lwt-esp32" {>= "2.4.7"}
   "cstruct-esp32"
   "logs-esp32"
+  "ocaml-esp32"
 ]
 conflicts: [ "tcpip" {<"2.5.0"} ]
 synopsis: "Buffered channels for MirageOS FLOW types"
@@ -58,4 +59,3 @@ url {
     "https://github.com/mirage/mirage-channel/releases/download/v3.1.0/mirage-channel-3.1.0.tbz"
   checksum: "md5=942d02ee627c0bae75ce5e7e16c1153e"
 }
-install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "mirage-channel-lwt.install"]]

@@ -1,5 +1,5 @@
 opam-version: "2.0"
-maintainer:   "Thomas Gazagnaire <thomas@gazagnaire.org>"
+maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors:      ["Thomas Gazagnaire <thomas@gazagnaire.org>"]
 homepage:     "https://github.com/mirage/mirage-kv"
 doc:          "https://mirage.github.io/mirage-kv/"
@@ -10,15 +10,16 @@ tags:         ["org:mirage"]
 
 build: [
   ["jbuilder" "subst"] {pinned}
-  ["env" "OCAMLFIND_TOOLCHAIN=esp32" "jbuilder" "build" "-p" "mirage-kv-lwt" "-j" jobs]
+  ["jbuilder" "build" "-x" "esp32" "-p" "mirage-kv-lwt" "-j" jobs]
 ]
 
 depends: [
   "ocaml" {>= "4.01.0"}
+  "ocaml-esp32"
   "jbuilder" {build & >= "1.0+beta7"}
-  "mirage-kv" {>= "1.0.0"}
-  "lwt"
-  "cstruct" {>= "1.9.0"}
+  "mirage-kv-esp32" {>= "1.0.0"}
+  "lwt-esp32"
+  "cstruct-esp32" {>= "1.9.0"}
 ]
 synopsis: "MirageOS utilities for interfacing with key-value stores."
 url {
@@ -26,4 +27,3 @@ url {
     "https://github.com/mirage/mirage-kv/releases/download/v1.1.0/mirage-kv-1.1.0.tbz"
   checksum: "md5=b1d8a3749ab84a6401c340b209f20faa"
 }
-install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "mirage-kv-lwt.install"]]

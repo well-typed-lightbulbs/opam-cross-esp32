@@ -1,5 +1,5 @@
 opam-version: "2.0"
-maintainer: "frederic.bour@lakaban.net"
+maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors: [
   "Frédéric Bour <frederic.bour@lakaban.net>"
   "Jérémie Dimino <jeremie@dimino.org>"
@@ -17,6 +17,7 @@ depends: [
   "result-esp32"
   "ocamlfind" {build}
   "jbuilder" {build & >= "1.0+beta10"}
+  "ocaml-esp32"
 ]
 synopsis: "Convert OCaml parsetrees between different versions"
 description: """

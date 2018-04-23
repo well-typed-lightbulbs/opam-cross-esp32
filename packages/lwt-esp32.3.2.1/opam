@@ -1,10 +1,6 @@
 opam-version: "1.2"
 version: "3.2.1"
-maintainer: [
-  "Anton Bachin <antonbachin@yahoo.com>"
-  "Mauricio Fernandez <mfp@acm.org>"
-  "Simon Cruanes <simon.cruanes.2007@m4x.org>"
-]
+maintainer: "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors: [
   "Jérôme Vouillon"
   "Jérémie Dimino"
@@ -15,12 +11,11 @@ bug-reports: "https://github.com/ocsigen/lwt/issues"
 license: "LGPL with OpenSSL linking exception"
 dev-repo: "https://github.com/ocsigen/lwt.git"
 
-substs: ["src/jbuild-ignore" "src/core/flambda.flag"]
 build: [
   [ "jbuilder" "build" "-x" "esp32" "-p" "lwt" "-j" jobs]
 ]
 build-test: [ [ "jbuilder" "runtest" "-p" name ] ]
-
+patches: ["lwt_unix.patch"]
 depends: [
   "cppo" {build & >= "1.1.0"}
   "jbuilder" {build & >= "1.0+beta14"}
@@ -35,8 +30,11 @@ depends: [
   "ocamlfind" {build & >= "1.7.3-1"}
   "ocaml-migrate-parsetree-esp32"
   "ppx_tools_versioned-esp32" {>= "5.0.1"}
+  "ocaml-migrate-parsetree"
+  "ppx_tools_versioned" {>= "5.0.1"}
   # result is needed as long as Lwt still supports OCaml 4.02.
   "result-esp32"
+  "ocaml-esp32"
 ]
 depopts: [
   "base-threads"

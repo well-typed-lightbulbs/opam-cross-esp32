@@ -1,5 +1,5 @@
 opam-version: "1.2"
-maintainer:   "Gabriel Radanne <drupyog@zoho.com>"
+maintainer: "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors:      [ "Thomas Gazagnaire"
                 "Anil Madhavapeddy"
                 "Dave Scott"
@@ -13,8 +13,8 @@ license:      "ISC"
 tags:         ["org:mirage"]
 
 build: [
-  ["env" "OCAMLFIND_TOOLCHAIN=esp32" "jbuilder" "subst"] {pinned}
-  ["env" "OCAMLFIND_TOOLCHAIN=esp32" "jbuilder" "build" "-p" "functoria-runtime" "-j" jobs]
+  ["jbuilder" "subst"] {pinned}
+  ["jbuilder" "build" "-x" "esp32" "-p" "functoria-runtime" "-j" jobs]
 ]
 
 # do not run the tests in parallel as it uses side-effects
@@ -24,9 +24,8 @@ depends: [
   "jbuilder" {build & >="1.0+beta10"}
   "cmdliner-esp32" {>= "0.9.8"}
   "fmt-esp32"
+  "ocaml-esp32"
   "functoria" {test & >= "2.2.0"}
   "alcotest"  {test}
 ]
 available: [ocaml-version >= "4.02"]
-
-install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "functoria-runtime.install"]]

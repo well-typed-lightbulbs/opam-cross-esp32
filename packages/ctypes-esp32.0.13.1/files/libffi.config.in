@@ -1,0 +1,3 @@
+libffi_available=true
+libffi_opt=%{libffi-sys-esp32:cflags}%
+libffi_lib=%{libffi-sys-esp32:ldflags}% -lffi

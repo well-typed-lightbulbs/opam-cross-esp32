@@ -12,6 +12,7 @@ depends: [
   "ocaml" {>= "4.04.1"}
   "jbuilder" {build & >= "1.0+beta12"}
   "sexplib-esp32" {>= "v0.10" & < "v0.11"}
+  "sexplib"
 ]
 depopts: [
   "base-native-int63"

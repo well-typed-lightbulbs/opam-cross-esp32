@@ -1,5 +1,5 @@
 opam-version: "2.0"
-maintainer:   "anil@recoil.org"
+maintainer: "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 homepage:     "https://github.com/mirage/io-page"
 dev-repo: "git+https://github.com/mirage/io-page.git"
 bug-reports:  "https://github.com/mirage/io-page/issues"
@@ -12,7 +12,7 @@ authors: [
 tags: ["org:mirage"]
 build: [
   [ "jbuilder" "subst"] {pinned}
-  [ "env" "OCAMLFIND_TOOLCHAIN=esp32" "jbuilder" "build" "-p" "io-page" "-j" jobs ]
+  [ "jbuilder" "build" "-x" "esp32" "-p" "io-page" "-j" jobs ]
 ]
 
 depends: [
@@ -20,6 +20,7 @@ depends: [
   "jbuilder" {build & >= "1.0+beta9"}
   "configurator" {build}
   "cstruct-esp32" {>= "2.0.0"}
+  "ocaml-esp32"
 ]
 synopsis: "Allocate memory pages suitable for aligned I/O"
 url {
@@ -27,4 +28,3 @@ url {
     "https://github.com/mirage/io-page/releases/download/2.0.1/io-page-2.0.1.tbz"
   checksum: "md5=900ceb361232695d9ca42d2bca72a6f2"
 }
-install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "io-page.install"]]

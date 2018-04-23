@@ -1,5 +1,5 @@
 opam-version: "1"
-maintainer: "lucas.pluvinage@ens.fr"
+maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 install: [ 
     ["mkdir" "-p" "%{prefix}%/esp-idf"]
     ["sh" "-c" "mv * %{prefix}%/esp-idf/"]

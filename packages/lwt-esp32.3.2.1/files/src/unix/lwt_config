@@ -1,0 +1,3 @@
+use_libev: false
+use_pthread: true
+android_target: true

@@ -1,5 +1,5 @@
 opam-version: "2.0"
-maintainer: "jeremie@dimino.org"
+maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors: ["Jérémie Dimino"]
 license: "BSD3"
 homepage: "https://github.com/diml/ppx_derivers"
@@ -11,6 +11,7 @@ build: [
 depends: [
   "ocaml"
   "jbuilder" {build & >= "1.0+beta7"}
+  "ocaml-esp32"
 ]
 synopsis: "Shared [@@deriving] plugin registry"
 description: """

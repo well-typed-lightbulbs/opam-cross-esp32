@@ -1,5 +1,5 @@
 opam-version: "2.0"
-maintainer:    "anil@recoil.org"
+maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 homepage:      "https://github.com/mirage/mirage-console"
 bug-reports:   "https://github.com/mirage/mirage-console/issues"
 dev-repo: "git+https://github.com/mirage/mirage-console.git"
@@ -10,11 +10,12 @@ license:       "ISC"
 
 build: [
   [ "jbuilder" "subst"] {pinned}
-  [ "env" "OCAMLFIND_TOOLCHAIN=esp32" "jbuilder" "build" "-p" "mirage-console" "-j" jobs ]
+  [ "jbuilder" "build" "-x" "esp32" "-p" "mirage-console" "-j" jobs ]
 ]
 
 depends: [
   "ocaml" {>= "4.03.0"}
+  "ocaml-esp32"
   "jbuilder" {build & >= "1.0+beta9"}
   "mirage-device-esp32" {>= "1.0.0"}
   "mirage-flow-esp32" {>= "1.2.0"}
@@ -63,4 +64,3 @@ url {
     "https://github.com/mirage/mirage-console/releases/download/v2.3.5/mirage-console-2.3.5.tbz"
   checksum: "md5=6d0d18cc25fc3e14f070fbb79a24f9ca"
 }
-install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "mirage-console.install"]]

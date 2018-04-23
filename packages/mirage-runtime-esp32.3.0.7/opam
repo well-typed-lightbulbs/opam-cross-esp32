@@ -11,7 +11,7 @@ doc:          "https://mirage.github.io/mirage/"
 
 build: [
   ["jbuilder" "subst"]{pinned}
-  ["env" "OCAMLFIND_TOOLCHAIN=esp32" "jbuilder" "build" "-p" "mirage-runtime" "-j" jobs]
+  ["jbuilder" "build" "-x" "esp32" "-p" "mirage-runtime" "-j" jobs]
 ]
 
 depends: [
@@ -23,4 +23,3 @@ depends: [
   "logs-esp32"
 ]
 available: [ocaml-version >= "4.04.2"]
-install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "mirage-runtime.install"]]

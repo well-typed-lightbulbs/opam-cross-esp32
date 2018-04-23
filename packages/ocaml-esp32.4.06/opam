@@ -1,10 +1,11 @@
 opam-version: "1"
-maintainer: "lucas.pluvinage@ens.fr"
+maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 substs: [ "esp32.conf" ]
 build: [
     [ "sh" "./configure" "-target" "xtensa-esp32-elf" "-target-bindir" "%{prefix}%/esp32-sysroot/bin" "-prefix" "%{prefix}%/esp32-sysroot" ]
     [ make "world-cross" "-j8"]
 ]
+available: [ ocaml-version >= "4.06" & ocaml-version < "4.07" ]
 install: [ 
     [ make "install-cross" ]
     ["sh" "./install.sh" "%{prefix}%"]
@@ -12,4 +13,6 @@ install: [
 remove: [
     [ "rm" "-rf" "%{prefix}%/esp32-sysroot" ]
 ]
-depends: ["gcc-toolchain-esp32"]
+depends: [
+    "gcc-toolchain-esp32"
+]

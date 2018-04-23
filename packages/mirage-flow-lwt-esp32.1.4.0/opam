@@ -1,5 +1,5 @@
 opam-version: "2.0"
-maintainer:    "thomas@gazagnaire.org"
+maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 homepage:      "https://github.com/mirage/mirage-flow"
 bug-reports:   "https://github.com/mirage/mirage-flow/issues"
 dev-repo: "git+https://github.com/mirage/mirage-flow.git"
@@ -10,11 +10,12 @@ license:       "ISC"
 
 build: [
   [ "jbuilder" "subst" ] {pinned}
-  [ "env" "OCAMLFIND_TOOLCHAIN=esp32" "jbuilder" "build" "-p" "mirage-flow-lwt" "-j" jobs ]
+  [  "jbuilder" "build" "-x" "esp32" "-p" "mirage-flow-lwt" "-j" jobs ]
 ]
 
 depends: [
   "ocaml"
+  "ocaml-esp32"
   "jbuilder" {build & >= "1.0+beta7"}
   "fmt-esp32"
   "lwt-esp32"
@@ -29,4 +30,3 @@ url {
     "https://github.com/mirage/mirage-flow/releases/download/v1.4.0/mirage-flow-1.4.0.tbz"
   checksum: "md5=fdbd270044821d21afc883399eea45aa"
 }
-install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "mirage-flow-lwt.install"]]

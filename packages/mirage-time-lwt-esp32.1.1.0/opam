@@ -1,5 +1,5 @@
 opam-version: "2.0"
-maintainer:    "thomas@gazagnaire.org"
+maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 homepage:      "https://github.com/mirage/mirage-time"
 bug-reports:   "https://github.com/mirage/mirage-time/issues"
 dev-repo: "git+https://github.com/mirage/mirage-time.git"
@@ -12,7 +12,7 @@ license:       "ISC"
 
 build: [
   [ "jbuilder" "subst" ] {pinned}
-  [ "env" "OCAMLFIND_TOOLCHAIN=esp32" "jbuilder" "build" "-p" "mirage-time-lwt" "-j" jobs ]
+  [  "jbuilder" "build" "-x" "esp32" "-p" "mirage-time-lwt" "-j" jobs ]
 ]
 
 depends: [
@@ -20,8 +20,8 @@ depends: [
   "jbuilder" {build & >= "1.0+beta9"}
   "mirage-time-esp32" {>= "1.0.0"}
   "lwt-esp32"
+  "ocaml-esp32"
 ]
-install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "mirage-time-lwt.install"]]
 
 synopsis: "Time operations for MirageOS"
 description: """

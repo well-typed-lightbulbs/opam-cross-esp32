@@ -1,5 +1,5 @@
 opam-version: "1.2"
-maintainer: "David Kaloper Meršinjak <david@numm.org>"
+maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors: "David Kaloper Meršinjak <david@numm.org>"
 homepage: "https://github.com/pqwy/ocb-stubblr"
 bug-reports: "https://github.com/pqwy/ocb-stubblr/issues"
@@ -14,7 +14,7 @@ install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "ocb-stubblr.ins
 depends: [
   "ocamlfind" {build}
   "ocamlbuild" {>= "0.9.3" | < "0.9.0"}
-  "topkg-esp32" {>= "0.8.1"}
   "astring-esp32"
+  "ocaml-esp32"
 ]
 available: [ocaml-version >= "4.01.0"]

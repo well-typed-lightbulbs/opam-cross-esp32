@@ -1,5 +1,5 @@
 opam-version: "2.0"
-maintainer: "opensource@janestreet.com"
+maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors: ["Jane Street Group, LLC <opensource@janestreet.com>"]
 homepage: "https://github.com/janestreet/ppx_type_conv"
 bug-reports: "https://github.com/janestreet/ppx_type_conv/issues"
@@ -16,6 +16,7 @@ depends: [
   "jbuilder" {build & >= "1.0+beta12"}
   "ocaml-migrate-parsetree-esp32" {>= "0.4"}
   "ppx_derivers-esp32"
+  "ocaml-esp32"
 ]
 synopsis: "Support Library for type-driven code generators"
 description: "Part of the Jane Street's PPX rewriters collection."

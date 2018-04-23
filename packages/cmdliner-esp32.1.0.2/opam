@@ -1,5 +1,5 @@
 opam-version: "1.2"
-maintainer: "Daniel Bünzli <daniel.buenzl i@erratique.ch>"
+maintainer: "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors: ["Daniel Bünzli <daniel.buenzl i@erratique.ch>"]
 homepage: "http://erratique.ch/software/cmdliner"
 doc: "http://erratique.ch/software/cmdliner/doc/Cmdliner"
@@ -13,6 +13,7 @@ depends:[
   "ocamlbuild" {build}
   "topkg" {build}
   "result-esp32"
+  "ocaml-esp32"
 ]
 build: [[
   "ocaml" "pkg/pkg.ml" "build"

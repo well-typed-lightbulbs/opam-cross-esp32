@@ -1,9 +1,9 @@
 opam-version: "1.2"
 authors: "Pierre Chambart"
-maintainer: "pierre.chambart@ocamlpro.com"
+maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 homepage: "https://github.com/OCamlPro/ocplib-endian"
 build: [
-  ["ocaml" "setup.ml" "-configure" "--disable-debug" "--toolchain" "esp32" "--prefix" "%{prefix}%/esp32-sysroot"]
+  ["env" "OCAMLFIND_TOOLCHAIN=esp32" "ocaml" "setup.ml" "-configure" "--override" "native_dynlink" "false" "--prefix" "%{prefix}%/esp32-sysroot"]
   ["env" "OCAMLFIND_TOOLCHAIN=esp32" "ocaml" "setup.ml" "-build"]
 ]
 install: [
@@ -14,6 +14,7 @@ depends: [
   "ocamlfind"
   "cppo-esp32" {>= "1.1.0"}
   "ocamlbuild" {build}
+  "ocaml-esp32"
 ]
 dev-repo: "https://github.com/OCamlPro/ocplib-endian.git"
 bug-reports: "https://github.com/OCamlPro/ocplib-endian/issues"

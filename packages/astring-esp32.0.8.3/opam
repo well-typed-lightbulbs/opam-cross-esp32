@@ -1,5 +1,5 @@
 opam-version: "1.2"
-maintainer: "Daniel Bünzli <daniel.buenzl i@erratique.ch>"
+maintainer: "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors: ["Daniel Bünzli <daniel.buenzl i@erratique.ch>"]
 homepage: "http://erratique.ch/software/astring"
 doc: "http://erratique.ch/software/astring/doc"
@@ -9,9 +9,10 @@ tags: [ "string" "org:erratique" ]
 license: "ISC"
 available: [ ocaml-version >= "4.01.0"]
 depends: [
+  "ocaml-esp32"
   "ocamlfind" {build}
   "ocamlbuild" {build}
-  "topkg-esp32" {build} ]
+  "topkg" {build} ]
 build: [[
   "ocaml" "pkg/pkg.ml" "build"
           "--pinned" "%{pinned}%"

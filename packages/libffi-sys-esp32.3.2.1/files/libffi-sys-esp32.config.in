@@ -1,0 +1,3 @@
+pkgconfig: "%{prefix}%/esp32-deps/libffi/lib/pkgconfig"
+cflags:    "-I%{prefix}%/esp32-deps/libffi/include"
+ldflags: "-L%{prefix}%/esp32-deps/libffi/lib"

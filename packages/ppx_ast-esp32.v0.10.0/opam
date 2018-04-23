@@ -1,5 +1,5 @@
 opam-version: "2.0"
-maintainer: "opensource@janestreet.com"
+maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors: ["Jane Street Group, LLC <opensource@janestreet.com>"]
 homepage: "https://github.com/janestreet/ppx_ast"
 bug-reports: "https://github.com/janestreet/ppx_ast/issues"
@@ -13,6 +13,7 @@ depends: [
   "ocaml-compiler-libs" {>= "v0.10" & < "v0.11"}
   "jbuilder" {build & >= "1.0+beta12"}
   "ocaml-migrate-parsetree-esp32" {>= "0.4"}
+  "ocaml-esp32"
 ]
 synopsis: "OCaml AST used by Jane Street ppx rewriters"
 description: """

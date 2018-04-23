@@ -1,5 +1,5 @@
 opam-version: "2.0"
-maintainer:   "anil@recoil.org"
+maintainer: "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors:      ["Anil Madhavapeddy" "Richard Mortier" "Thomas Gazagnaire"
                "Pierre Chambart" "David Kaloper" "Jeremy Yallop" "David Scott"
                "Mindy Preston" "Thomas Leonard" ]
@@ -10,13 +10,14 @@ bug-reports:  "https://github.com/mirage/ocaml-cstruct/issues"
 tags: [ "org:mirage" "org:ocamllabs" ]
 build: [
   ["jbuilder" "subst" "-p" name "--name" name] {pinned}
-  [ "env" "OCAMLFIND_TOOLCHAIN=esp32" "jbuilder" "build" "-p" "cstruct-lwt" "-j" jobs]
+  [ "jbuilder" "build" "-x" "esp32" "-p" "cstruct-lwt" "-j" jobs]
 ]
 depends: [
   "ocaml" {>= "4.03.0"}
   "base-unix"
   "lwt-esp32"
   "cstruct-esp32"
+  "ocaml-esp32"
   "jbuilder" {build & >= "1.0+beta7"}
 ]
 synopsis: "Access C-like structures directly from OCaml"
@@ -29,4 +30,3 @@ url {
     "https://github.com/mirage/ocaml-cstruct/releases/download/v3.2.1/cstruct-3.2.1.tbz"
   checksum: "md5=c1eb6a48f3d3b0b1e358f06a8c92a4c1"
 }
-install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "cstruct-lwt.install"]]

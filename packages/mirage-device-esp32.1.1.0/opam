@@ -1,5 +1,5 @@
 opam-version: "1.2"
-maintainer:    "thomas@gazagnaire.org"
+maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 homepage:      "https://github.com/mirage/mirage-device"
 bug-reports:   "https://github.com/mirage/mirage-device/issues"
 dev-repo:      "https://github.com/mirage/mirage-device.git"
@@ -10,12 +10,11 @@ authors:       ["Thomas Gazagnaire" "Anil Madhavapeddy" "Gabriel Radanne"
 tags:          [ "org:mirage"]
 license:       "ISC"
 build: [
-  ["env" "OCAMLFIND_TOOLCHAIN=esp32" "jbuilder" "subst"] {pinned}
-  ["env" "OCAMLFIND_TOOLCHAIN=esp32" "jbuilder" "build" "-p" "mirage-device" "-j" jobs]
+  ["jbuilder" "subst"] {pinned}
+  ["jbuilder" "build" "-x" "esp32" "-p" "mirage-device" "-j" jobs]
 ]
 depends: [
   "jbuilder"  {build & >="1.0+beta7"}
   "fmt-esp32"
   "ocaml-esp32"
 ]
-install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "mirage-device.install"]]

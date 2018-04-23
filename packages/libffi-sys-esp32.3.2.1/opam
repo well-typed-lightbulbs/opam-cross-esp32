@@ -1,0 +1,18 @@
+opam-version: "1"
+maintainer: "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
+substs: ["libffi-sys-esp32.config"]
+build: [
+  ["./autogen.sh"]
+  ["env" "CC=xtensa-esp32-elf-gcc" "CFLAGS=-nostdlib -u call_user_start_cpu0 -Wl,--gc-sections -Wl,-static -Wl,--start-group -lgcc -lstdc++ -lgcov -Wl,--end-group -Wl,-EL"
+   "./configure" "--host=xtensa-linux-elf"
+                 "--target=xtensa-linux-elf"
+                 "--prefix=%{prefix}%/esp32-deps/libffi"
+                 "--disable-shared"
+                 "--with-pic"
+  ]
+  ["make" "-j" jobs]
+]
+install: [
+  ["make" "install"]
+]
+remove:  [["rm" "-rf" "%{prefix}%/esp32-deps/libffi"]]

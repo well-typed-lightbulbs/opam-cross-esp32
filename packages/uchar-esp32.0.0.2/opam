@@ -1,5 +1,5 @@
 opam-version: "1.2"
-maintainer: "Daniel Bünzli <daniel.buenzl i@erratique.ch>"
+maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors: ["Daniel Bünzli <daniel.buenzl i@erratique.ch>"]
 homepage: "http://ocaml.org"
 doc: "https://ocaml.github.io/uchar/"

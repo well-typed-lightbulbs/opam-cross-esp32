@@ -1,5 +1,5 @@
 opam-version: "1.2"
-maintainer: "frederic.bour@lakaban.net"
+maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors: [
   "Frédéric Bour <frederic.bour@lakaban.net>"
   "Alain Frisch <alain.frisch@lexifi.com>"
@@ -16,7 +16,8 @@ build: [
 build-test: [["jbuilder" "runtest" "-p" "ppx_tools_versioned" "-j" jobs]]
 depends: [
   "jbuilder" {build & >= "1.0+beta17"}
-  "ocaml-migrate-parsetree-esp32" { >= "0.4" }
+  "ocaml-migrate-parsetree" { >= "0.4" }
+  "ocaml-esp32"
 ]
 available: ocaml-version >= "4.02.0"
 install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "ppx_tools_versioned.install"]]

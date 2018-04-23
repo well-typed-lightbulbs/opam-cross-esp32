@@ -1,5 +1,5 @@
 opam-version: "2.0"
-maintainer:   "Mindy Preston <meetup@yomimono.org>"
+maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors:      ["Mindy Preston <meetup@yomimono.org>"]
 homepage:     "https://github.com/mirage/mirage-stack"
 doc:          "https://mirage.github.io/mirage-stack/"
@@ -10,7 +10,7 @@ tags:         ["org:mirage"]
 
 build: [
   [ "jbuilder" "subst" ] {pinned}
-  [ "env" "OCAMLFIND_TOOLCHAIN=esp32" "jbuilder" "build" "-p" "mirage-stack" "-j" jobs ]
+  [ "jbuilder" "build" "-x" "esp32" "-p" "mirage-stack" "-j" jobs ]
 ]
 
 depends: [
@@ -19,10 +19,10 @@ depends: [
   "mirage-device-esp32" {>= "1.0.0"}
   "mirage-protocols-esp32" {>= "1.3.0"}
   "fmt-esp32"
+  "ocaml-esp32"
 ]
 url {
   src:
     "https://github.com/mirage/mirage-stack/releases/download/v1.2.0/mirage-stack-1.2.0.tbz"
   checksum: "md5=6ad12083b32d5c780eeebe4727c31cf2"
 }
-install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "mirage-stack.install"]]

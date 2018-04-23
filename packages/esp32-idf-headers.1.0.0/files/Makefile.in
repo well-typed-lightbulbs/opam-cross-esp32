@@ -1,0 +1,30 @@
+
+DESTDIR = %{prefix}%/xtensa-esp32-elf/xtensa-esp32-elf/include/
+
+COMPONENT_DIR = esp-idf/components
+
+
+COMPONENTS := $(dir $(wildcard $(COMPONENT_DIR)/*/component.mk))
+COMPONENTS :=  $(filter-out $(COMPONENT_DIR)/esp32/,$(COMPONENTS))
+COMPONENTS := $(foreach\
+	comp,\
+	$(COMPONENTS),\
+	$(eval COMPONENT_ADD_INCLUDEDIRS="")$(eval include $(comp)component.mk)$(foreach idir, $(COMPONENT_ADD_INCLUDEDIRS), $(comp)$(idir))\
+)
+
+define MakeInclude 
+cp -r $(1) $(DESTDIR);
+endef  
+
+
+
+DUMMY := $(foreach\
+	comp,\
+	$(COMPONENTS),\
+	$(call MakeInclude,$(comp))\
+)
+
+.PHONY: all
+all: 
+	@echo $(COMPONENTS)
+	@echo $(DUMMY)

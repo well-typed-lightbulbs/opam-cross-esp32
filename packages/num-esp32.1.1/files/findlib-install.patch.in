@@ -84,36 +84,55 @@ index 0000000..b5678b7
 +  plugin(native) = "nums.cmxs"
 +)
 diff --git a/src/Makefile b/src/Makefile
-index 97dc074..ff271fe 100644
+index 97dc074..c6e34be 100644
 --- a/src/Makefile
 +++ b/src/Makefile
-@@ -80,21 +80,34 @@ endif
+@@ -1,10 +1,11 @@
+-OCAMLC=ocamlc
+-OCAMLOPT=ocamlopt
+-OCAMLDEP=ocamldep
+-OCAMLMKLIB=ocamlmklib
++OCAMLC=ocamlfind ocamlc
++OCAMLOPT=ocamlfind ocamlopt
++OCAMLDEP=ocamlfind ocamldep
++OCAMLMKLIB=ocamlfind ocamlmklib
+ OCAMLFIND=ocamlfind
+ INSTALL_DATA=install -m 644
+ INSTALL_DLL=install
++INSTALL_DIR=install -d
+ STDLIBDIR=$(shell $(OCAMLC) -where)
+ 
+ include $(STDLIBDIR)/Makefile.config
+@@ -80,26 +81,40 @@ endif
  ifeq "$(NATDYNLINK)" "true"
  TOINSTALL+=nums.cmxs
  endif
+-TOINSTALL_STUBS=dllnums.$(SO)
 +ifeq "$(SUPPORTS_SHARED_LIBRARIES)" "true"
- TOINSTALL_STUBS=dllnums.$(SO)
++TOINSTALL_STUBS=dllnums$(EXT_DLL)
 +else
 +TOINSTALL_STUBS=
 +endif
  
  install:
+-	$(OCAMLFIND) install num META
 +	cp META.in META
- 	$(OCAMLFIND) install num META
++	$(OCAMLFIND) install -destdir=%{prefix}%/esp32-sysroot/lib num META
 +	rm -f META
  	$(INSTALL_DATA) $(TOINSTALL) $(STDLIBDIR)
  ifeq "$(SUPPORTS_SHARED_LIBRARIES)" "true"
++	$(INSTALL_DIR) $(STDLIBDIR)/stublibs
  	$(INSTALL_DLL) $(TOINSTALL_STUBS) $(STDLIBDIR)/stublibs
  endif
  
 -uninstall:
 +findlib-install:
 +	grep -Fv '^' META.in > META
-+	$(OCAMLFIND) install -destdir=%{prefix}%/esp32-sysroot num META $(TOINSTALL) $(TOINSTALL_STUBS)
++	$(OCAMLFIND) install -destdir=%{prefix}%/esp32-sysroot/lib num META $(TOINSTALL) $(TOINSTALL_STUBS)
 +	rm -f META
 +
 +findlib-uninstall:
-+	$(OCAMLFIND) remove num
++	$(OCAMLFIND) remove -destdir=%{prefix}%/esp32-sysroot/lib num
 +
 +uninstall: findlib-uninstall
  	cd $(STDLIBDIR) && rm -f $(TOINSTALL)
@@ -123,7 +142,8 @@ index 97dc074..ff271fe 100644
 -	$(OCAMLFIND) remove num
  
  clean:
- 	rm -f *.cm[ioxta] *.cmx[as] *.cmti *.$(O) *.$(A) *.$(SO)
--- 
-2.14.1
-
+-	rm -f *.cm[ioxta] *.cmx[as] *.cmti *.$(O) *.$(A) *.$(SO)
++	rm -f *.cm[ioxta] *.cmx[as] *.cmti *.$(O) *.$(A) *$(EXT_DLL)
+ 
+ depend:
+ 	$(OCAMLDEP) -slash *.mli *.ml > .depend

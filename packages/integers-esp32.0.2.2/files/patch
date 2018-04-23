@@ -1,0 +1,13 @@
+diff --git a/src/unsigned_stubs.c b/src/unsigned_stubs.c
+index 37cbd2a..21c22ef 100644
+--- a/src/unsigned_stubs.c
++++ b/src/unsigned_stubs.c
+@@ -22,6 +22,8 @@
+ 
+ #include "ocaml_integers.h"
+ 
++#define SCNu8 SCNu16
++
+ #define Uint_custom_val(SIZE, V) Uint_custom_val_(SIZE, V)
+ #define Uint_custom_val_(SIZE, V) \
+   (*(uint ## SIZE ## _t *)(Data_custom_val(V)))

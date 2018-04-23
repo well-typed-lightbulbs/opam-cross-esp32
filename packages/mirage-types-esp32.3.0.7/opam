@@ -1,5 +1,5 @@
 opam-version: "2.0"
-maintainer:   ["anil@recoil.org" "thomas@gazagnaire.org"]
+maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors:      ["Thomas Gazagnaire" "Anil Madhavapeddy" "Gabriel Radanne"
                "Mindy Preston" "Thomas Leonard" "Nicolas Ojeda Bar"
                "Dave Scott" "David Kaloper" "Hannes Mehnert" "Richard Mortier"]
@@ -11,7 +11,7 @@ tags:         ["org:mirage" "org:xapi-project"]
 
 build: [
   ["jbuilder" "subst"]{pinned}
-  ["env" "OCAMLFIND_TOOLCHAIN=esp32" "jbuilder" "build" "-p" "mirage-types" "-j" jobs]
+  ["jbuilder" "build" "-x" "esp32" "-p" "mirage-types" "-j" jobs]
 ]
 
 depends: [
@@ -30,6 +30,7 @@ depends: [
   "mirage-fs-esp32" {>= "1.0.0"}
   "mirage-kv-esp32" {>= "1.0.0"}
   "mirage-channel-esp32" {>= "3.0.0"}
+  "ocaml-esp32"
 ]
 synopsis: "Module type definitions for Mirage-compatible applications"
 url {
@@ -37,4 +38,3 @@ url {
     "https://github.com/mirage/mirage/releases/download/3.0.7/mirage-3.0.7.tbz"
   checksum: "md5=37def6de00392f02729c7cb2a7d5a722"
 }
-install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "mirage-types.install"]]

@@ -1,5 +1,5 @@
 opam-version: "1.2"
-maintainer: "martin@mjambon.com"
+maintainer: "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors: ["Martin Jambon"]
 homepage: "https://github.com/mjambon/cppo"
 dev-repo: "https://github.com/mjambon/cppo.git"
@@ -16,6 +16,7 @@ build-test: [
 
 depends: [
   "jbuilder" {build & >= "1.0+beta17"}
+  "ocaml-esp32"
 ]
 
 install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "cppo.install"]]

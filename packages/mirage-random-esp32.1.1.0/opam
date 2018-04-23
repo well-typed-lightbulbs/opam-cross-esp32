@@ -1,5 +1,5 @@
 opam-version: "2.0"
-maintainer:    "thomas@gazagnaire.org"
+maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 homepage:      "https://github.com/mirage/mirage-random"
 bug-reports:   "https://github.com/mirage/mirage-random/issues"
 dev-repo: "git+https://github.com/mirage/mirage-random.git"
@@ -12,7 +12,7 @@ license:       "ISC"
 
 build: [
   [ "jbuilder" "subst" ] {pinned}
-  ["env" "OCAMLFIND_TOOLCHAIN=esp32" "jbuilder" "build" "-p" "mirage-random" "-j" jobs ]
+  ["jbuilder" "build" "-x" "esp32" "-p" "mirage-random" "-j" jobs ]
 ]
 
 depends: [
@@ -21,7 +21,6 @@ depends: [
   "cstruct-esp32" {>= "1.9.0"}
 ]
 
-install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "mirage-random.install"]]
 
 synopsis:
   "Random signatures for MirageOS, and an implementation using stdlib"

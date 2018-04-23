@@ -1,5 +1,5 @@
 opam-version: "2.0"
-maintainer: "opensource@janestreet.com"
+maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors: ["Jane Street Group, LLC <opensource@janestreet.com>"]
 homepage: "https://github.com/janestreet/ocaml-compiler-libs"
 bug-reports: "https://github.com/janestreet/ocaml-compiler-libs/issues"
@@ -11,6 +11,7 @@ build: [
 depends: [
   "ocaml" {>= "4.04.1"}
   "jbuilder" {build & >= "1.0+beta12"}
+  "ocaml-esp32"
 ]
 synopsis: "OCaml compiler libraries repackaged"
 description: """
