@@ -21,7 +21,6 @@ depends: [
   "mirage-kv-lwt-esp32"
   "lwt-esp32"
   "cstruct-esp32" {>= "1.9.0"}
-  "cstruct-lwt-esp32"
 ]
 synopsis: "MirageOS signatures for filesystem devices"
 description: """
