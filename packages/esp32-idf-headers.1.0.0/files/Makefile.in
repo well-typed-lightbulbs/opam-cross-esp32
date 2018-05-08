@@ -1,7 +1,7 @@
 
 DESTDIR = %{prefix}%/xtensa-esp32-elf/xtensa-esp32-elf/include/
 
-COMPONENT_DIR = esp-idf/components
+COMPONENT_DIR = components
 
 
 COMPONENTS := $(dir $(wildcard $(COMPONENT_DIR)/*/component.mk))
@@ -13,7 +13,7 @@ COMPONENTS := $(foreach\
 )
 
 define MakeInclude 
-cp -r $(1) $(DESTDIR);
+cp -r $(1)/* $(DESTDIR);
 endef  
 
 

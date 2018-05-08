@@ -5,7 +5,7 @@ depends: [
 "gcc-toolchain-esp32"
 ]
 substs: ["Makefile"]
-build: ["git" "clone" "--recursive" "--depth" "1" "https://github.com/TheLortex/esp-idf"]
+build: []
 install: [ 
   [make]
 ]
