@@ -9,7 +9,7 @@ COMPONENTS :=  $(filter-out $(COMPONENT_DIR)/esp32/,$(COMPONENTS))
 COMPONENTS := $(foreach\
 	comp,\
 	$(COMPONENTS),\
-	$(eval COMPONENT_ADD_INCLUDEDIRS="")$(eval include $(comp)component.mk)$(foreach idir, $(COMPONENT_ADD_INCLUDEDIRS), $(comp)$(idir))\
+	$(eval COMPONENT_ADD_INCLUDEDIRS="include")$(eval include $(comp)component.mk)$(foreach idir, $(COMPONENT_ADD_INCLUDEDIRS), $(comp)$(idir))\
 )
 
 define MakeInclude 
