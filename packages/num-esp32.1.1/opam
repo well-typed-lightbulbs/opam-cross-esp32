@@ -16,8 +16,7 @@ dev-repo: "https://github.com/ocaml/num.git"
 build: [
   [make]
 ]
-install: ["env" "OCAMLFIND_TOOLCHAIN=esp32" make "install" {!preinstalled} "findlib-install" {preinstalled} ]
-remove: ["env" "OCAMLFIND_TOOLCHAIN=esp32" make "uninstall" {!preinstalled} "findlib-uninstall" {preinstalled} ]
+install: ["env" "OCAMLFIND_TOOLCHAIN=esp32" make "install"]
 
 depends: [
   "ocamlfind" {build & >= "1.7.3"}

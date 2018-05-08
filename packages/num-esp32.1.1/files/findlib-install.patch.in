@@ -92,11 +92,12 @@ index 97dc074..c6e34be 100644
 -OCAMLOPT=ocamlopt
 -OCAMLDEP=ocamldep
 -OCAMLMKLIB=ocamlmklib
-+OCAMLC=ocamlfind ocamlc
-+OCAMLOPT=ocamlfind ocamlopt
-+OCAMLDEP=ocamlfind ocamldep
-+OCAMLMKLIB=ocamlfind ocamlmklib
- OCAMLFIND=ocamlfind
+-OCAMLFIND=ocamlfind
++OCAMLC=ocamlfind -toolchain esp32 ocamlc
++OCAMLOPT=ocamlfind -toolchain esp32 ocamlopt
++OCAMLDEP=ocamlfind -toolchain esp32 ocamldep
++OCAMLMKLIB=ocamlfind -toolchain esp32 ocamlmklib
++OCAMLFIND=ocamlfind -toolchain esp32
  INSTALL_DATA=install -m 644
  INSTALL_DLL=install
 +INSTALL_DIR=install -d
