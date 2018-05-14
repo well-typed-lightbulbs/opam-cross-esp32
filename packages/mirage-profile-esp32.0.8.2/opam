@@ -10,7 +10,6 @@ license: "BSD-2-clause"
 build: [
   [ "jbuilder" "subst"] {pinned}
   [ "jbuilder" "build" "-x" "esp32" "-p" "mirage-profile" "-j" jobs ]
-  [ "sed" "-i" "-e" "s/ppx_tools_versioned//g" "_build/install/default.esp32/lib/mirage-profile/META" ]
 ]
 
 depends: [

@@ -10,8 +10,7 @@ bug-reports: "https://github.com/let-def/ppx_tools_versioned/issues"
 dev-repo: "git://github.com/let-def/ppx_tools_versioned.git"
 tags: [ "syntax" ]
 build: [
-  ["jbuilder" "subst" "-n" "ppx_tools_versioned"] {pinned}
-  ["jbuilder" "build" "-p" "ppx_tools_versioned" "-j" jobs]
+  [make]
 ]
 build-test: [["jbuilder" "runtest" "-p" "ppx_tools_versioned" "-j" jobs]]
 depends: [
@@ -20,4 +19,6 @@ depends: [
   "ocaml-esp32"
 ]
 available: ocaml-version >= "4.02.0"
-install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "ppx_tools_versioned.install"]]
+install: [
+  ["env" "OCAMLFIND_TOOLCHAIN=esp32" make "install"]
+]
