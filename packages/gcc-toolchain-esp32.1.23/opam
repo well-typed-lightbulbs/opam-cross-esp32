@@ -6,9 +6,4 @@ install: [
     ["sh" "-c" "ln -s %{prefix}%/xtensa-esp32-elf/bin/* %{bin}%"]
     ["sh" "-c" "cd %{prefix}%/xtensa-esp32-elf/ && rm -f toolchain-esp32-linux64-*.env toolchain-esp32-linux64-*.info toolchain-esp32-linux64-*.err toolchain-esp32-linux64-*.out"]
 ]
-remove: [
-    ["rm" "-rf" "%{prefix}%/xtensa-esp32-elf"]
-    ["sh" "-c" "rm %{bin}%/xtensa-esp32-elf-*"]
-]
-flags: [ light-uninstall ]
 available: [ os = "linux" & arch = "x86_64" ]
