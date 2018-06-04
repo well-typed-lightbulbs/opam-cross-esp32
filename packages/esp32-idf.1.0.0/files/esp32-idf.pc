@@ -1,0 +1,9 @@
+prefix=${pcfiledir}/../..
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+
+Name: esp32-idf
+Version: 1.0.0
+URL: https://github.com/TheLortex/esp-idf
+Description: ESP IDF
+Libs: ${prefix}/esp32-deps/esp32-idf/

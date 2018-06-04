@@ -1,0 +1,10 @@
+
+DESTDIR = %{prefix}%/esp32-deps/esp32-idf/
+
+SHARE = %{share}%/pkgconfig/
+
+.PHONY: all
+all: 
+	mkdir -p $(DESTDIR) 
+	cp -R * $(DESTDIR)
+	cp -R esp32-idf.pc $(SHARE)
