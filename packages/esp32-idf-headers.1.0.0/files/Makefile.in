@@ -28,3 +28,4 @@ DUMMY := $(foreach\
 all: 
 	@echo $(COMPONENTS)
 	@echo $(DUMMY)
+	cp sdkconfig.h $(DESTDIR)
