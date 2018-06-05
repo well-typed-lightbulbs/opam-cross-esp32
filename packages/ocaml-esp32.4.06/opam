@@ -2,7 +2,7 @@ opam-version: "1"
 maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 substs: [ "esp32.conf" ]
 build: [
-    [ "sh" "./configure" "-target" "xtensa-esp32-elf" "-target-bindir" "%{prefix}%/esp32-sysroot/bin" "-prefix" "%{prefix}%/esp32-sysroot" ]
+    [ "sh" "./configure" "-target" "xtensa-esp32-elf" "-target-bindir" "%{prefix}%/esp32-sysroot/bin" "-prefix" "%{prefix}%/esp32-sysroot" "-lto" "-flambda" ]
     [ make "world-cross" "-j8"]
 ]
 available: [ ocaml-version >= "4.06" & ocaml-version < "4.07" ]
