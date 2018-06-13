@@ -1,0 +1,17 @@
+opam-version: "2.0"
+maintainer:   "lucas.pluvinage@ens.fr"
+license:      "ISC"
+authors: []
+tags: []
+build: [ "jbuilder" "build" "-x" "esp32" "-p" "wifi"]
+depends: [
+  "jbuilder" {build}
+  "cstruct-esp32"
+  "ocaml-esp32"
+  "esp32-idf-headers"
+]
+available: [ ocaml-version >= "4.06.0" ]
+url {
+  src: 
+    "https://github.com/TheLortex/wifi-esp32/archive/master.zip"
+}
