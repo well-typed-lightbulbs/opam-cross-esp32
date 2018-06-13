@@ -17,6 +17,7 @@ depends: [
     "mirage-impl-esp32"
     "ocaml-esp32"
     "mirage-net-lwt-esp32"
+    "wifi-esp32"
 ]
 available: [ ocaml-version >= "4.06.0"]
 url {
