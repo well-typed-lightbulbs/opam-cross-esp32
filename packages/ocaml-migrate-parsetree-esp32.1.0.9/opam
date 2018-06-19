@@ -1,4 +1,4 @@
-opam-version: "2.0"
+opam-version: "1.2"
 maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors: [
   "Frédéric Bour <frederic.bour@lakaban.net>"
@@ -13,19 +13,12 @@ build: [
   ["jbuilder" "build" "-p" "ocaml-migrate-parsetree" "-j" jobs]
 ]
 depends: [
-  "ocaml" {>= "4.02.0"}
+  
   "result-esp32"
   "ocamlfind" {build}
   "jbuilder" {build & >= "1.0+beta10"}
   "ocaml-esp32"
 ]
 synopsis: "Convert OCaml parsetrees between different versions"
-description: """
-This library converts parsetrees, outcometree and ast mappers between different OCaml versions.
-High-level functions help making PPX rewriters independent of a compiler version."""
-url {
-  src:
-    "https://github.com/ocaml-ppx/ocaml-migrate-parsetree/releases/download/v1.0.9/ocaml-migrate-parsetree-1.0.9.tbz"
-}
 
 install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "ocaml-migrate-parsetree.install"]]

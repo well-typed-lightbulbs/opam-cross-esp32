@@ -1,4 +1,4 @@
-opam-version: "2.0"
+opam-version: "1.2"
 maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 homepage:      "https://github.com/mirage/mirage-net"
 bug-reports:   "https://github.com/mirage/mirage-net/issues"
@@ -16,7 +16,7 @@ build: [
 ]
 
 depends: [
-  "ocaml"
+  
   "jbuilder" {build & >= "1.0+beta7"}
   "topkg" {build & >= "0.8.0"}
   "mirage-net-esp32" {>= "1.0.0"}
@@ -28,8 +28,3 @@ depends: [
   "ocaml-esp32"
 ]
 synopsis: "MirageOS TCP/IP networking library"
-url {
-  src:
-    "https://github.com/mirage/mirage-net/releases/download/v1.1.0/mirage-net-1.1.0.tbz"
-  checksum: "md5=76b10d355dc2e87ff2d19d1ae40c5d9b"
-}

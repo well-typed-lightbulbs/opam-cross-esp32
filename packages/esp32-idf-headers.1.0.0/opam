@@ -10,4 +10,3 @@ install: [
   [make]
 ]
 synopsis: "ESP32 framework headers"
-description: """Espressif's Iot Development Framework headers for OCaml esp libraries using C bindings. """

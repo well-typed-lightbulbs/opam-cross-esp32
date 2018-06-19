@@ -1,4 +1,4 @@
-opam-version: "2.0"
+opam-version: "1.2"
 maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 homepage:      "https://github.com/mirage/mirage-flow"
 bug-reports:   "https://github.com/mirage/mirage-flow/issues"
@@ -14,7 +14,7 @@ build: [
 ]
 
 depends: [
-  "ocaml"
+  
   "ocaml-esp32"
   "jbuilder" {build & >= "1.0+beta7"}
   "fmt-esp32"
@@ -25,8 +25,3 @@ depends: [
   "mirage-flow-esp32" {>= "1.2.0"}
 ]
 synopsis: "Flow implementations and combinators for MirageOS using Lwt"
-url {
-  src:
-    "https://github.com/mirage/mirage-flow/releases/download/v1.4.0/mirage-flow-1.4.0.tbz"
-  checksum: "md5=fdbd270044821d21afc883399eea45aa"
-}

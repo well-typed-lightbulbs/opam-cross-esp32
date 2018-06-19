@@ -1,4 +1,4 @@
-opam-version: "2.0"
+opam-version: "1.2"
 maintainer: "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors: [ "David Scott" ]
 license: "ISC"
@@ -13,7 +13,7 @@ build: [
 ]
 
 depends: [
-  "ocaml" {>= "4.02.0"}
+  "ocaml-esp32" {>= "4.02.0"}
   "ocamlfind" {build}
   "jbuilder" {build & >= "1.0+beta9"}
   "base-bytes"
@@ -29,8 +29,3 @@ tags: "org:mirage"
 synopsis: "Utilities and module definitions for dealing with block devices."
 description:
   "This library is primarily useful in the context of a Mirage project."
-url {
-  src:
-    "https://github.com/mirage/mirage-block/releases/download/1.1.0/mirage-block-1.1.0.tbz"
-  checksum: "md5=e0ecf9f8ec64a70e4b514f477c6e7634"
-}

@@ -1,4 +1,4 @@
-opam-version: "2.0"
+opam-version: "1.2"
 maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors:      "The MirageOS team"
 homepage:     "https://github.com/mirage/mirage"
@@ -13,7 +13,7 @@ build: [
 ]
 
 depends: [
-  "ocaml" {>= "4.04.2"}
+  
   "jbuilder" {build & >= "1.0+beta10"}
   "lwt-esp32"
   "cstruct-esp32" {>= "1.4.0"}
@@ -36,21 +36,3 @@ depends: [
 ]
 
 synopsis: "Lwt module type definitions for Mirage-compatible applications"
-description: """
-This is a virtual package that pulls in all the concrete
-dependencies required for the `mirage-types.lwt` ocamlfind
-package to become available.
-
-The purpose of this library is to provide concrete types
-for several that are left abstract in `mirage-types`:
-
-- `type 'a io = 'a Lwt.t`
-- `type page_aligned_buffer = Io_page.t`
-- `type buffer = Cstruct.t`
-- `type macaddr = Macaddr.t`
-- `type ipv4addr = Ipaddr.V4.t`"""
-url {
-  src:
-    "https://github.com/mirage/mirage/releases/download/3.0.7/mirage-3.0.7.tbz"
-  checksum: "md5=37def6de00392f02729c7cb2a7d5a722"
-}

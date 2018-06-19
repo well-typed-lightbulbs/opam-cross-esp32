@@ -1,4 +1,4 @@
-opam-version: "2.0"
+opam-version: "1.2"
 maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors:      ["Thomas Gazagnaire <thomas@gazagnaire.org>"]
 homepage:     "https://github.com/mirage/mirage-kv"
@@ -14,23 +14,9 @@ build: [
 ]
 
 depends: [
-  "ocaml" {>= "4.03.0"}
   "jbuilder" {build & >= "1.0+beta10"}
   "mirage-device-esp32" {>= "1.0.0"}
   "fmt-esp32"
   "ocaml-esp32"
 ]
 synopsis: "MirageOS signatures for key/value devices"
-description: """
-mirage-kv provides the [Mirage_kv.RO][ro] and [Mirage_kv_lwt.RO][ro-lwt]
-signatures the MirageOS key/value devices should implement.
-
-mirage-kv is distributed under the ISC license.
-
-[ro]: https://mirage.github.io/mirage-kv/Mirage_kv.html
-[ro-lwt]: https://mirage.github.io/mirage-kv/Mirage_kv_lwt.html"""
-url {
-  src:
-    "https://github.com/mirage/mirage-kv/releases/download/v1.1.1/mirage-kv-1.1.1.tbz"
-  checksum: "md5=8c1ac2888c17e1e1586d3b3de595bd28"
-}

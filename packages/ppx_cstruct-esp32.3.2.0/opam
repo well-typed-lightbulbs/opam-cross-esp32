@@ -1,4 +1,4 @@
-opam-version: "2.0"
+opam-version: "1.2"
 maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors:      ["Anil Madhavapeddy" "Richard Mortier" "Thomas Gazagnaire"
                "Pierre Chambart" "David Kaloper" "Jeremy Yallop" "David Scott"
@@ -14,7 +14,7 @@ build: [
   ["jbuilder" "runtest" "-p" "ppx_cstruct" "-j" jobs] {with-test}
 ]
 depends: [
-  "ocaml" {>= "4.03.0"}
+  
   "jbuilder" {build & >= "1.0+beta7"}
   "cstruct"
   "ounit" {with-test}
@@ -26,14 +26,5 @@ depends: [
   "ocaml-esp32"
 ]
 synopsis: "Access C-like structures directly from OCaml"
-description: """
-Cstruct is a library and syntax extension to make it easier to access C-like
-structures directly from OCaml.  It supports both reading and writing to these
-structures, and they are accessed via the `Bigarray` module."""
-url {
-  src:
-    "https://github.com/mirage/ocaml-cstruct/releases/download/v3.2.0/cstruct-3.2.0.tbz"
-  checksum: "md5=e204b4db6f54b64a54b62467abe96d70"
-}
 
 install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "ppx_cstruct.install"]]

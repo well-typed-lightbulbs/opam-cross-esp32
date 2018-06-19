@@ -1,5 +1,6 @@
-opam-version: "2.0"
+opam-version: "1.2"
 maintainer:   "lucas.pluvinage@ens.fr"
+author:   "lucas.pluvinage@ens.fr"
 license:      "ISC"
 authors: []
 tags: []
@@ -13,7 +14,3 @@ depends: [
   "esp32-idf-headers"
 ]
 available: [ ocaml-version >= "4.06.0" ]
-url {
-  src: 
-    "https://github.com/TheLortex/lcd-esp32/archive/master.zip"
-}

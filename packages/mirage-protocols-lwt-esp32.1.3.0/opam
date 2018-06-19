@@ -1,4 +1,4 @@
-opam-version: "2.0"
+opam-version: "1.2"
 maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors:      ["Mindy Preston <meetup@yomimono.org>"]
 homepage:     "https://github.com/mirage/mirage-protocols"
@@ -14,7 +14,6 @@ build: [
 ]
 
 depends: [
-  "ocaml" {>= "4.03.0"}
   "jbuilder" {build & >= "1.0+beta9"}
   "mirage-protocols-esp32" {>= "1.3.0"}
   "ipaddr-esp32" {>= "2.0.0"}
@@ -22,8 +21,3 @@ depends: [
   "cstruct-esp32" {>= "1.9.0"}
   "ocaml-esp32"
 ]
-url {
-  src:
-    "https://github.com/mirage/mirage-protocols/releases/download/v1.3.0/mirage-protocols-1.3.0.tbz"
-  checksum: "md5=c78a4fd04b96cab6665e8d8a770464ef"
-}

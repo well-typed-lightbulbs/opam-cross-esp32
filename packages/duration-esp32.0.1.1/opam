@@ -1,4 +1,4 @@
-opam-version: "2.0"
+opam-version: "1.2"
 maintainer: "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors: ["Hannes Mehnert <hannes@mehnert.org>"]
 homepage: "https://github.com/hannesm/duration"
@@ -17,13 +17,5 @@ build: [
   ["ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%" "--toolchain" "esp32"]
 ]
 synopsis: "Conversions to various time units"
-description: """
-A duration is represented in nanoseconds as an unsigned 64 bit integer.  This
-has a range of up to 584 years.  Functions provided check the input and raise
-on negative or out of bound input."""
-url {
-  src:
-    "https://github.com/hannesm/duration/releases/download/0.1.1/duration-0.1.1.tbz"
-  checksum: "md5=160e36e2ba16a01492c8c2b6d8c496ac"
-}
+
 install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "duration.install"]]

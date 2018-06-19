@@ -1,4 +1,4 @@
-opam-version: "2.0"
+opam-version: "1.2"
 maintainer: "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors: ["Jeremy Yallop"
           "Demi Obenour"
@@ -20,10 +20,5 @@ depends: [
 ]
 doc: "http://ocamllabs.github.io/ocaml-integers/api.docdir/"
 synopsis: "Various signed and unsigned integer types for OCaml"
-url {
-  src:
-    "https://github.com/ocamllabs/ocaml-integers/releases/download/v0.2.2/integers-0.2.2.tbz"
-  checksum: "md5=ae226532930965fe0b43c02f2469cadc"
-}
 patches: ["patch"]
 install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "integers.install"]]

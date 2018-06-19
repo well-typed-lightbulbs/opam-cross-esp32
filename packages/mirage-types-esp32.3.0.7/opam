@@ -1,4 +1,4 @@
-opam-version: "2.0"
+opam-version: "1.2"
 maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors:      ["Thomas Gazagnaire" "Anil Madhavapeddy" "Gabriel Radanne"
                "Mindy Preston" "Thomas Leonard" "Nicolas Ojeda Bar"
@@ -15,7 +15,7 @@ build: [
 ]
 
 depends: [
-  "ocaml" {>= "4.04.2"}
+  
   "jbuilder" {build & >= "1.0+beta10"}
   "mirage-device-esp32" {>= "1.0.0"}
   "mirage-time-esp32" {>= "1.0.0"}
@@ -33,8 +33,3 @@ depends: [
   "ocaml-esp32"
 ]
 synopsis: "Module type definitions for Mirage-compatible applications"
-url {
-  src:
-    "https://github.com/mirage/mirage/releases/download/3.0.7/mirage-3.0.7.tbz"
-  checksum: "md5=37def6de00392f02729c7cb2a7d5a722"
-}

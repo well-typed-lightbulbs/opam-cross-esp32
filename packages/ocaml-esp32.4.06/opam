@@ -1,4 +1,4 @@
-opam-version: "1"
+opam-version: "1.2"
 maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 substs: [ "esp32.conf" ]
 build: [
@@ -15,4 +15,5 @@ remove: [
 ]
 depends: [
     "gcc-toolchain-esp32"
+    "ocamlfind"
 ]

@@ -1,4 +1,4 @@
-opam-version: "2.0"
+opam-version: "1.2"
 maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors: ["Jane Street Group, LLC <opensource@janestreet.com>"]
 homepage: "https://github.com/janestreet/ppx_type_conv"
@@ -9,7 +9,7 @@ build: [
   ["jbuilder" "build" "-p" "ppx_type_conv" "-j" jobs]
 ]
 depends: [
-  "ocaml" {>= "4.04.1"}
+  
   "ppx_core-esp32" {>= "v0.10" & < "v0.11"}
   "ppx_driver-esp32" {>= "v0.10" & < "v0.11"}
   "ppx_metaquot-esp32" {>= "v0.10" & < "v0.11"}
@@ -20,9 +20,5 @@ depends: [
 ]
 synopsis: "Support Library for type-driven code generators"
 description: "Part of the Jane Street's PPX rewriters collection."
-url {
-  src:
-    "https://ocaml.janestreet.com/ocaml-core/v0.10/files/ppx_type_conv-v0.10.0.tar.gz"
-  checksum: "md5=ae87662d39eebc6a2df6851c0f4da88c"
-}
+
 install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "ppx_type_conv.install"]]

@@ -1,4 +1,4 @@
-opam-version: "2.0"
+opam-version: "1.2"
 maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors:      ["Anil Madhavapeddy" "Mindy Preston" "Thomas Gazagnaire"]
 homepage:     "https://github.com/mirage/mirage-channel"
@@ -13,7 +13,6 @@ build: [
   ["jbuilder" "build" "-x" "esp32" "-p" "mirage-channel-lwt" "-j" jobs]
 ]
 depends: [
-  "ocaml" {>= "4.02.3"}
   "jbuilder" {build & >= "1.0+beta10"}
   "mirage-flow-lwt-esp32" {>= "1.2.0"}
   "mirage-channel-esp32" {>= "3.1.0"}
@@ -26,36 +25,3 @@ depends: [
 ]
 conflicts: [ "tcpip" {<"2.5.0"} ]
 synopsis: "Buffered channels for MirageOS FLOW types"
-description: """
-Channels are buffered reader/writers built on top of unbuffered `FLOW`
-implementations.
-
-Example:
-
-```ocaml
-module Channel = Channel.Make(Flow)
-...
-Channel.read_exactly ~len:16 t
->>= fun bufs -> (* read header of message *)
-let payload_length = Cstruct.(LE.get_uint16 (concat bufs) 0) in
-Channel.read_exactly ~len:payload_length t
->>= fun bufs -> (* payload of message *)
-
-(* process message *)
-
-Channel.write_buffer t header;
-Channel.write_buffer t payload;
-Channel.flush t
->>= fun () ->
-```
-
-mirage-channel is distributed under the ISC license.
-
-* Homepage: https://github.com/mirage/mirage-channel  
-* Issue: <https://github.com/mirage/mirage-channel/issues>
-* Contact: `<mirageos-devel@lists.xenproject.org>`"""
-url {
-  src:
-    "https://github.com/mirage/mirage-channel/releases/download/v3.1.0/mirage-channel-3.1.0.tbz"
-  checksum: "md5=942d02ee627c0bae75ce5e7e16c1153e"
-}

@@ -10,4 +10,4 @@ install: [
   [make]
 ]
 synopsis: "ESP32 framework"
-description: """Espressif's Iot Development Framework"""
+
