@@ -7,5 +7,6 @@ SHARE = %{share}%/pkgconfig/
 all: 
 	git clone --recursive https://github.com/TheLortex/esp-idf --depth 1
 	mkdir -p $(DESTDIR) 
+	mkdir -p $(SHARE)
 	cp -R esp-idf/* $(DESTDIR)
 	cp -R esp32-idf.pc $(SHARE)
