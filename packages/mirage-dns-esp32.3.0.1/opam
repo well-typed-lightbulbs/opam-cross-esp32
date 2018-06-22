@@ -1,0 +1,29 @@
+opam-version: "1.2"
+maintainer: "anil@recoil.org"
+homepage: "https://github.com/mirage/ocaml-dns"
+dev-repo: "https://github.com/mirage/ocaml-dns.git"
+bug-reports: "https://github.com/mirage/ocaml-dns/issues"
+license: "ISC"
+authors: [
+  "Anil Madhavapeddy"
+  "Tim Deegan"
+  "Richard Mortier"
+  "Haris Rotsos"
+  "David Sheets"
+  "Thomas Gazagnaire"
+  "Luke Dunstan"
+]
+build: [
+  ["jbuilder" "subst"] {pinned}
+  ["jbuilder" "build" "-x" "esp32" "-p" "mirage-dns"]
+]
+depends: [
+  "mirage-profile-esp32" {>= "0.8.0"}
+  "mirage-time-lwt-esp32"
+  "mirage-kv-lwt-esp32"
+  "mirage-stack-lwt-esp32"
+  "duration-esp32"
+  "dns-lwt-esp32"
+  "jbuilder" {build & >= "1.0+beta9"}
+]
+available: [ocaml-version >= "4.03.0"]
