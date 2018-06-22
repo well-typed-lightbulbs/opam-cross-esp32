@@ -5,7 +5,7 @@ SHARE = %{share}%/pkgconfig/
 
 .PHONY: all
 all: 
-	git clone --recursive https://github.com/TheLortex/esp-idf --depth 1
+	git clone --recursive https://github.com/well-typed-lightbulbs/esp-idf --depth 1
 	mkdir -p $(DESTDIR) 
 	mkdir -p $(SHARE)
 	cp -R esp-idf/* $(DESTDIR)

@@ -1,10 +1,10 @@
 opam-version: "1.2"
 maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 authors:      ["Lucas Pluvinage <lucas.pluvinage@ens.fr>"]
-homepage:     "https://github.com/TheLortex/mirage-net-impl-esp32"
+homepage:     "https://github.com/well-typed-lightbulbs/mirage-net-impl-esp32"
 license:      "ISC"
-dev-repo:     "https://github.com/TheLortex/mirage-net-impl-esp32.git"
-bug-reports:  "https://github.com/TheLortex/mirage-net-impl-esp32/issues"
+dev-repo:     "https://github.com/well-typed-lightbulbs/mirage-net-impl-esp32.git"
+bug-reports:  "https://github.com/well-typed-lightbulbs/mirage-net-impl-esp32/issues"
 build: [
   ["jbuilder" "subst"] {pinned}
   ["jbuilder" "build" "-x" "esp32" "-p" "mirage-net-impl" "-j" jobs]

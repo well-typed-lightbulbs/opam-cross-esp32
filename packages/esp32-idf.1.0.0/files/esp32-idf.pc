@@ -4,6 +4,6 @@ libdir=${exec_prefix}/lib
 
 Name: esp32-idf
 Version: 1.0.0
-URL: https://github.com/TheLortex/esp-idf
+URL: https://github.com/well-typed-lightbulbs/esp-idf
 Description: ESP IDF
 Libs: ${prefix}/esp32-deps/esp32-idf/
