@@ -16,6 +16,7 @@ depends: [
   "jbuilder"  {build & >="1.0+beta9"}
   "cstruct-esp32" {>= "3.0.0"}
   "ppx_cstruct" {build}
+  "ppx_cstruct-esp32" {build}
   "ocplib-endian-esp32"
   "ppx_tools_versioned-esp32"
   "lwt-esp32"
