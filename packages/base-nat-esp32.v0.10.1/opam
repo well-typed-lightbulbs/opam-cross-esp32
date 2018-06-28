@@ -6,15 +6,14 @@ bug-reports: "https://github.com/janestreet/base/issues"
 dev-repo: "git+https://github.com/janestreet/base.git"
 license: "Apache-2.0"
 build: [
-  ["jbuilder" "build" "-x" "esp32" "-p" "base" "-j" jobs]
+  ["jbuilder" "build" "-p" "base" "-j" jobs]
 ]
 depends: [
   "ocaml-esp32" {>= "4.04.1"}
   "jbuilder" {build & >= "1.0+beta12"}
-  "sexplib-esp32" {>= "v0.10" & < "v0.11"}
+  "sexplib" {>= "v0.10" & < "v0.11"}
 ]
 depopts: [
   "base-native-int63"
 ]
-synopsis: "Full standard library replacement for OCaml"
-patches: ["jbuild.patch"]
+install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "base.install"]]

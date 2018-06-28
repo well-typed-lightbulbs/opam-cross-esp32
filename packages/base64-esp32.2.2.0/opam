@@ -11,6 +11,7 @@ depends: [
   "rresult" {test}
   "bos" {test}
   "jbuilder" {build & >= "1.0+beta10"}
+  "ocaml-esp32"
 ]
 build: [
   ["jbuilder" "subst"] {pinned}

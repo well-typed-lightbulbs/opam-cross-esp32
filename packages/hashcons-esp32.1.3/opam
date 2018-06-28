@@ -9,7 +9,6 @@ build: [
   ["jbuilder" "build" "-x" "esp32" "-p" "hashcons"]
 ]
 depends: [
-  "conf-which" {build}
-  "ocamlfind" {build}
-  "conf-autoconf" {build}
+  "jbuilder" {build}
+  "ocaml-esp32"
 ]

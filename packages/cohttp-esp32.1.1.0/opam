@@ -1,0 +1,40 @@
+opam-version: "1.2"
+maintainer: "anil@recoil.org"
+authors: [
+  "Anil Madhavapeddy"
+  "Stefano Zacchiroli"
+  "David Sheets"
+  "Thomas Gazagnaire"
+  "David Scott"
+  "Rudi Grinberg"
+  "Andy Ray"
+]
+homepage: "https://github.com/mirage/ocaml-cohttp"
+bug-reports: "https://github.com/mirage/ocaml-cohttp/issues"
+license: "ISC"
+tags: ["org:mirage" "org:xapi-project"]
+dev-repo: "https://github.com/mirage/ocaml-cohttp.git"
+build: [
+  ["jbuilder" "subst" "-n" name] {pinned}
+  ["jbuilder" "build" "-x" "esp32" "-p" "cohttp"]
+]
+build-test: [
+  ["jbuilder" "runtest" "-p" name "-j" jobs]
+]
+depends: [
+  "alcotest" {test}
+  "jsonm" {build}
+  "fmt" {test}
+  "base64-esp32" {>= "2.0.0"}
+  "stringext-esp32"
+  "ppx_sexp_conv-esp32" {>= "v0.9.0"}
+  "ppx_fields_conv-esp32" {>= "v0.9.0"}
+  "ppx_type_conv" {build & >= "v0.9.1"}
+  "sexplib-esp32"
+  "fieldslib-esp32"
+  "uri-esp32" {>= "1.9.0"}
+  "re-esp32" {>= "1.7.2"}
+  "jbuilder" {build & >= "1.0+beta10"}
+]
+available: [ocaml-version >= "4.03.0"]
+patches: ["jbuild.patch"]

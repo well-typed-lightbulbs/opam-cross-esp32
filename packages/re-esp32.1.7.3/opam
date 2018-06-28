@@ -20,6 +20,7 @@ build-test: [
 ]
 depends: [
   "ounit" {test}
+  "ocaml-esp32"
   "jbuilder" {build & >= "1.0+beta10"}
 ]
 available: [ocaml-version >= "4.02.3"]

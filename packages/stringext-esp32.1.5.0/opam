@@ -16,5 +16,6 @@ depends: [
   "qtest" {test & >= "2.2"}
   "ounit" {test}
   "jbuilder" {build & >= "1.0+beta10"}
+  "ocaml-esp32"
 ]
 available: [ocaml-version >= "4.02.3"]

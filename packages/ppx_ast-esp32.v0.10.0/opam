@@ -9,8 +9,7 @@ build: [
   ["jbuilder" "build" "-p" "ppx_ast" "-j" jobs]
 ]
 depends: [
-  
-  "ocaml-compiler-libs" {>= "v0.10" & < "v0.11"}
+  "ocaml-compiler-libs-esp32" {>= "v0.10" & < "v0.11"}
   "jbuilder" {build & >= "1.0+beta12"}
   "ocaml-migrate-parsetree-esp32" {>= "0.4"}
   "ocaml-esp32"

@@ -13,7 +13,7 @@ build: [
   ["jbuilder" "build" "-p" "ocaml-migrate-parsetree" "-j" jobs]
 ]
 depends: [
-  
+  "result"
   "result-esp32"
   "ocamlfind" {build}
   "jbuilder" {build & >= "1.0+beta10"}

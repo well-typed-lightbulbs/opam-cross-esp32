@@ -1,0 +1,12 @@
+diff --git a/src/jbuild b/src/jbuild
+index 36de95b..388d164 100644
+--- a/src/jbuild
++++ b/src/jbuild
+@@ -24,6 +24,7 @@
+ (library
+  ((name base)
+   (public_name base)
++  (no_dynlink)
+   (libraries
+    (caml
+     shadow_stdlib

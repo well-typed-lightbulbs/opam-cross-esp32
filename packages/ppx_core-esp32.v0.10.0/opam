@@ -9,13 +9,12 @@ build: [
   ["jbuilder" "build" "-p" "ppx_core" "-j" jobs]
 ]
 depends: [
-  
   "ppx_core"
-  "base-esp32" {>= "v0.10" & < "v0.11"}
-  "ocaml-compiler-libs" {>= "v0.10" & < "v0.11"}
+  "base-nat-esp32" {>= "v0.10" & < "v0.11"}
+  "ocaml-compiler-libs-esp32" {>= "v0.10" & < "v0.11"}
   "ppx_ast-esp32" {>= "v0.10" & < "v0.11"}
   "ppx_traverse_builtins-esp32" {>= "v0.10" & < "v0.11"}
-  "stdio-esp32" {>= "v0.10" & < "v0.11"}
+  "stdio-nat-esp32" {>= "v0.10" & < "v0.11"}
   "jbuilder" {build & >= "1.0+beta12"}
   "ocaml-esp32"
 ]
