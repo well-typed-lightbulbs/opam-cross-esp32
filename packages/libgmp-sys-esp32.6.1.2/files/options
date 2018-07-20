@@ -1,0 +1,2 @@
+#define HAVE_STRNLEN 1
+#define HAVE_MEMSET 1

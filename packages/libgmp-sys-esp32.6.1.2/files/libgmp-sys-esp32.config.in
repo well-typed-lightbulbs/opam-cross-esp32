@@ -1,0 +1,3 @@
+pkgconfig: "%{prefix}%/esp32-deps/libgmp/lib/pkgconfig"
+cflags:    "-I%{prefix}%/esp32-deps/libgmp/include"
+ldflags: "-L%{prefix}%/esp32-deps/libgmp/lib"

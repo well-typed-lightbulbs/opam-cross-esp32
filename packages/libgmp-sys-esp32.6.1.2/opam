@@ -1,0 +1,16 @@
+opam-version: "1"
+maintainer: "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
+substs: ["libgmp-sys-esp32.config"]
+build: [
+  ["env" "CC=xtensa-esp32-elf-gcc" "CFLAGS=-nostdlib -u call_user_start_cpu0"
+   "./configure" "--host=xtensa-linux-elf"
+                 "--prefix=%{prefix}%/esp32-deps/libgmp"
+                 "--enable-shared=no"
+  ]
+  ["sh" "-c" "cat options | tee -a config.h >/dev/null"]
+  ["make" "-j" jobs]
+]
+install: [
+  ["make" "install"]
+]
+remove:  [["rm" "-rf" "%{prefix}%/esp32-deps/libgmp"]]
