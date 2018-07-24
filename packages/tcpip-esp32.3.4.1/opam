@@ -1,5 +1,5 @@
 opam-version: "1.2"
-maintainer:   "anil@recoil.org"
+maintainer:   "lucas.pluvinage@ens.fr"
 homepage:     "https://github.com/mirage/mirage-tcpip"
 dev-repo: "git+https://github.com/mirage/mirage-tcpip.git"
 bug-reports:  "https://github.com/mirage/mirage-tcpip/issues"

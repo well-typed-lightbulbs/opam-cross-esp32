@@ -1,14 +1,12 @@
 opam-version: "1.2"
+version:      "0.1"
 maintainer:   "lucas.pluvinage@ens.fr"
-author:   "lucas.pluvinage@ens.fr"
 license:      "ISC"
-authors: []
+authors: ["Lucas Pluvinage"]
 tags: []
-build: [ "jbuilder" "build" "-x" "esp32" "-p" "lcd"]
+build: [ "jbuilder" "build" "-x" "esp32" "-p" "wifi"]
 depends: [
-  "ocamlfind" {build}
   "jbuilder" {build}
-  "ocb-stubblr" {build}
   "cstruct-esp32"
   "ocaml-esp32"
   "esp32-idf-headers"
