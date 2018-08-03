@@ -18,6 +18,7 @@ build: [
 ]
 install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "ppx_deriving.install"]]
 depends: [
+  "ocaml-esp32"
   "ocamlbuild" {build}
   "ocamlfind" {build & >= "1.6.0"}
   "cppo" {build}

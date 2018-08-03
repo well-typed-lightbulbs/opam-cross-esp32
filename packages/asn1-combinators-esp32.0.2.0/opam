@@ -1,6 +1,6 @@
 opam-version: "1.2"
 authors: ["David Kaloper Meršinjak <david@numm.org>"]
-maintainer: "David Kaloper Meršinjak <david@numm.org>"
+maintainer: "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 homepage: "https://github.com/mirleft/ocaml-asn1-combinators"
 doc: "https://mirleft.github.io/ocaml-asn1-combinators/doc"
 license: "ISC"
@@ -12,7 +12,7 @@ build: [
 ]
 install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "asn1-combinators.install"]]
 depends: [
-  "ocaml" {>= "4.02.0"}
+  "ocaml-esp32"
   "ocamlfind" {build}
   "ocamlbuild" {build}
   "topkg" {build}

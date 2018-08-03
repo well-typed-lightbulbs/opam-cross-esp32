@@ -13,4 +13,7 @@ build: [
 install: [
   ["make" "install"]
 ]
+depends: [
+  "gcc-toolchain-esp32"
+]
 remove:  [["rm" "-rf" "%{prefix}%/esp32-deps/libgmp"]]

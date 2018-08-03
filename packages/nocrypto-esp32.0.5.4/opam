@@ -4,7 +4,7 @@ dev-repo: "git+https://github.com/mirleft/ocaml-nocrypto.git"
 bug-reports:  "https://github.com/mirleft/ocaml-nocrypto/issues"
 doc:          "https://mirleft.github.io/ocaml-nocrypto/doc"
 authors:      ["David Kaloper <david@numm.org>"]
-maintainer:   "David Kaloper <david@numm.org>"
+maintainer:   "Lucas Pluvinage <lucas.pluvinage@ens.fr>"
 license:      "ISC"
 tags:          [ "org:mirage" ]
 build: ["ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%" "--tests" "false"
@@ -19,7 +19,6 @@ depends: [
   "ocamlfind" {build}
   "ocamlbuild" {build}
   "topkg" {build}
-  "cpuid" {build}
   "ocb-stubblr" {build}
   "ppx_deriving-esp32"
   "ppx_sexp_conv-esp32" {>= "113.33.01" & < "v0.11.0"}
@@ -27,8 +26,9 @@ depends: [
   "cstruct-esp32" {>= "2.4.0"}
   "zarith-esp32"
   "lwt-esp32"
+  "ocplib-endian-esp32"
   "sexplib-esp32" {< "v0.11.0"}
-  "mirage-entropy"
+  "mirage-entropy-esp32"
   "mirage-impl-esp32"
 ]
 synopsis: "Simpler crypto"
