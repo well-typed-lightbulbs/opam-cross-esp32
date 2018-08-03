@@ -25,6 +25,7 @@ depends: [
   "ounit" {with-test}
   "cstruct-esp32" {>= "2.4.0"}
   "zarith-esp32"
+  "cpuid"{build}
   "lwt-esp32"
   "ocplib-endian-esp32"
   "sexplib-esp32" {< "v0.11.0"}
