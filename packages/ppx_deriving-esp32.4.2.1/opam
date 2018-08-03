@@ -12,8 +12,8 @@ build: [
   [
     "ocaml"
     "pkg/build.ml"
-    "native=%{ocaml:native-dynlink}%"
-    "native-dynlink=%{ocaml:native-dynlink}%"
+    "native=true"
+    "native-dynlink=false"
   ]
 ]
 install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "ppx_deriving.install"]]
