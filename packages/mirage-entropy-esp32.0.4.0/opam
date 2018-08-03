@@ -1,0 +1,24 @@
+opam-version: "1.2"
+name:         "mirage-entropy"
+homepage:     "https://github.com/mirage/mirage-entropy"
+dev-repo: "git+https://github.com/mirage/mirage-entropy.git"
+bug-reports:  "https://github.com/mirage/mirage-entropy/issues"
+maintainer:   "lucas.pluvinage@ens.fr"
+license:      "BSD2"
+
+build: [ "ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%" "--tests" "false" "--toolchain" "esp32"]
+install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "mirage-entropy.install"]]
+depends: [
+  "ocamlfind" {build}
+  "ocamlbuild" {build}
+  "topkg" {build}
+  "ocb-stubblr" {build}
+  "cstruct-esp32"
+  "mirage-os-shim-esp32"
+  "lwt-esp32"
+  "esp32-idf-headers"
+]
+tags: [ "org:mirage"]
+synopsis: "Entropy source for MirageOS unikernels."
+authors: ["Hannes Mehnert" "David Kaloper" "Anil Madhavapeddy" "Dave Scott"]
+

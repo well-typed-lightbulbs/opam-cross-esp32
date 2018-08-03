@@ -1,0 +1,20 @@
+opam-version: "1.2"
+maintainer: "lucas.pluvinage@gmail.com"
+authors: ["David Kaloper Meršinjak <david@numm.org>"]
+homepage: "https://github.com/mirage/mirage-os-shim"
+doc: "https://mirage.github.io/mirage-os-shim/doc"
+license: "ISC"
+dev-repo: "git+https://github.com/mirage/mirage-os-shim.git"
+bug-reports: "https://github.com/mirage/mirage-os-shim/issues"
+build: [
+  "ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%" "--toolchain" "esp32" "--with-mirage-esp32" "true"
+]
+depends: [
+  "ocamlfind" {build}
+  "ocamlbuild" {build}
+  "topkg" {build}
+  "lwt-esp32"
+  "mirage-impl-esp32"
+]
+install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "mirage-os-shim.install"]]
+synopsis: "Portable shim for MirageOS APIs"
