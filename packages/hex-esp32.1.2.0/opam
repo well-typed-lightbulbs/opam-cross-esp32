@@ -1,0 +1,18 @@
+opam-version: "1.2"
+maintainer: "thomas@gazagnaire.org"
+authors: ["Thomas Gazagnaire" "Trevor Summers Smith"]
+homepage: "https://github.com/mirage/ocaml-hex"
+bug-reports: "https://github.com/mirage/ocaml-hex/issues"
+dev-repo: "git+https://github.com/mirage/ocaml-hex.git"
+license: "ISC"
+build: [
+  ["jbuilder" "subst"] {pinned}
+  ["jbuilder" "build" "-x" "esp32" "-p" "hex"]
+  ["jbuilder" "runtest"] {with-test}
+]
+depends: [
+  "cstruct-esp32" {>= "1.7.0"}
+  "jbuilder" {build & >= "1.0+beta8"}
+  "ocaml-esp32"
+]
+synopsis: "Minimal library providing hexadecimal converters."

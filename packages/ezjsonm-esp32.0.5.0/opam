@@ -1,0 +1,23 @@
+opam-version: "1.2"
+maintainer: "thomas@gazagnaire.org"
+authors: "Thomas Gazagnaire"
+license: "ISC"
+homepage: "https://github.com/mirage/ezjsonm"
+bug-reports: "https://github.com/mirage/ezjsonm/issues"
+dev-repo: "git+https://github.com/mirage/ezjsonm.git"
+doc: "https://mirage.github.io/ezjsonm"
+tags: ["org:mirage" "org:ocamllabs"]
+build: [
+  ["jbuilder" "subst"] {pinned}
+  ["jbuilder" "build" "-x" "esp32" "-p" "ezjsonm"]
+]
+depends: [
+  "hex-esp32"
+  "sexplib-esp32"
+  "jsonm-esp32" {>= "0.9.1"}
+  "alcotest" {with-test & >= "0.4.0"}
+  "jbuilder" {build & >= "1.0+beta9"}
+  "ocamlfind" {build}
+  "ocaml-esp32"
+]
+synopsis: "An easy interface on top of the Jsonm library"

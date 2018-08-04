@@ -1,0 +1,23 @@
+opam-version: "1.2"
+maintainer: "Daniel Bünzli <daniel.buenzl i@erratique.ch>"
+authors: ["Daniel Bünzli <daniel.buenzl i@erratique.ch>"]
+homepage: "http://erratique.ch/software/jsonm"
+doc: "http://erratique.ch/software/jsonm/doc/Jsonm"
+dev-repo: "git+http://erratique.ch/repos/jsonm.git"
+bug-reports: "https://github.com/dbuenzli/jsonm/issues"
+tags: ["json" "codec" "org:erratique"]
+license: "ISC"
+depends: [
+  "uutf-esp32" {>= "1.0.0"}
+  "uchar-esp32"
+  "topkg" {build}
+  "ocamlbuild" {build}
+  "ocamlfind" {build}
+  "ocaml-esp32" {>= "4.01.0"}
+]
+build: [
+  ["ocaml" "pkg/pkg.ml" "build" "--pinned" "%{pinned}%" "--toolchain" "esp32"]
+]
+install: [["opam-installer" "--prefix=%{prefix}%/esp32-sysroot" "jsonm.install"]]
+synopsis: "Non-blocking streaming JSON codec for OCaml"
+

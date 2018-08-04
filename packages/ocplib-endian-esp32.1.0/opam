@@ -9,7 +9,6 @@ build: [
 install: [
   ["env" "OCAMLFIND_TOOLCHAIN=esp32" "ocaml" "setup.ml" "-install"]
 ]
-remove: ["ocamlfind" "remove" "ocplib-endian"]
 depends: [
   "ocamlfind"
   "cppo-esp32" {>= "1.1.0"}

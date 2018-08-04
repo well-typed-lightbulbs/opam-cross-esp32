@@ -1,0 +1,32 @@
+opam-version: "1.2"
+maintainer: "Anil Madhavapeddy <anil@recoil.org>"
+authors: [
+  "Anil Madhavapeddy"
+  "Thomas Gazagnaire"
+  "David Sheets"
+  "Rudi Grinberg"
+  "Timothy Bourke"
+]
+homepage: "https://github.com/mirage/ocaml-cow"
+doc: "http://mirage.github.io/ocaml-cow/"
+license: "ISC"
+dev-repo: "git+https://github.com/mirage/ocaml-cow.git"
+bug-reports: "https://github.com/mirage/ocaml-cow/issues"
+tags: [
+  "org:mirage" "org:xapi-project" "www" "html" "xml" "css" "json" "markdown"
+]
+depends: [
+  "alcotest" {with-test}
+  "ezjsonm-esp32" {>= "0.4.0"}
+  "omd-esp32" {>= "0.8.2"}
+  "xmlm-esp32" {>= "1.1.1"}
+  "uri-esp32" {>= "1.3.9"}
+  "jbuilder" {build & >= "1.0+beta7"}
+  "ocaml-esp32" {>= "4.03.0"}
+]
+build: [
+  ["jbuilder" "subst"] {pinned}
+  ["jbuilder" "build" "-x" "esp32" "-p" "cow"]
+  ["jbuilder" "runtest" "-p" name] {with-test}
+]
+synopsis: "Caml-On-the-Web: XML, JSON, HTML and Markdown libraries"

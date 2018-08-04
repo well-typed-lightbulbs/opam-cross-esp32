@@ -16,7 +16,7 @@ depends: [
   "sexplib-esp32"                 {>= "v0.10" & < "v0.11"}
   "jbuilder"                      {build & >= "1.0+beta12"}
   "ocaml-migrate-parsetree-esp32" {>= "0.4"}
-  "ppx_sexp_conv"
+  "ppx_sexp_conv"                 {>= "v0.10" & < "v0.11"}
   "ocaml-esp32"
 ]
 available: [ ocaml-version >= "4.04.1" ]

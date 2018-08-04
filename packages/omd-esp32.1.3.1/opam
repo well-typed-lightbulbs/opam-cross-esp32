@@ -1,0 +1,19 @@
+opam-version: "2.0"
+maintainer: "Philippe Wang <philippe.wang@gmail.com>"
+authors: ["Philippe Wang <philippe.wang@gmail.com>"]
+license: "ISC"
+homepage: "https://github.com/ocaml/omd"
+dev-repo: "git+https://github.com/ocaml/omd.git"
+bug-reports: "https://github.com/ocaml/omd/issues"
+tags: ["org:ocamllabs" "org:mirage"]
+build: [
+  ["env" "OCAMLFIND_TOOLCHAIN=esp32" "ocaml" "setup.ml" "-configure" "--prefix" "%{prefix}%/esp32-sysroot"]
+  ["env" "OCAMLFIND_TOOLCHAIN=esp32" "ocaml" "setup.ml" "-build"]
+]
+install: ["env" "OCAMLFIND_TOOLCHAIN=esp32" "ocaml" "setup.ml" "-install"]
+depends: [
+  "ocamlfind" {build & >= "1.5"}
+  "ocamlbuild" {build}
+  "ocaml-esp32" {>= "4.01"}
+]
+synopsis: "A Markdown frontend in pure OCaml."
