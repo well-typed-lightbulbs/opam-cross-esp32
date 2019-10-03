@@ -1,6 +1,0 @@
-(jbuild_version 1)
-(library
- ((name        hashcons)
-  (public_name hashcons)
-  (wrapped false)
-))
